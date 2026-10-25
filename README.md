@@ -5,14 +5,14 @@
 </picture>
 
 <p align="center">
-  <img alt="Cisco IOS XE" src="https://img.shields.io/badge/Cisco-IOS%20XE-049FD9?style=flat-square\\\&logo=cisco\\\&logoColor=white\\\&labelColor=1D1D1D">
-  <img alt="OPNsense" src="https://img.shields.io/badge/OPNsense-firewall%20%26%20IDS-D94F00?style=flat-square\\\&logo=opnsense\\\&logoColor=white\\\&labelColor=1D1D1D">
-  <img alt="Proxmox VE" src="https://img.shields.io/badge/Proxmox-VE-E57000?style=flat-square\\\&logo=proxmox\\\&logoColor=white\\\&labelColor=1D1D1D">
-  <img alt="Windows Server 2022" src="https://img.shields.io/badge/Windows%20Server-2022-0078D4?style=flat-square\\\&labelColor=1D1D1D">
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-LibreNMS-2496ED?style=flat-square\\\&logo=docker\\\&logoColor=white\\\&labelColor=1D1D1D">
-  <img alt="UniFi" src="https://img.shields.io/badge/UniFi-storage%20%26%20Protect-006FFF?style=flat-square\\\&logo=ubiquiti\\\&logoColor=white\\\&labelColor=1D1D1D">
+  <img alt="Cisco IOS XE" src="https://img.shields.io/badge/Cisco-IOS%20XE-049FD9?style=flat-square\\\\\\\&logo=cisco\\\\\\\&logoColor=white\\\\\\\&labelColor=1D1D1D">
+  <img alt="OPNsense" src="https://img.shields.io/badge/OPNsense-firewall%20%26%20IDS-D94F00?style=flat-square\\\\\\\&logo=opnsense\\\\\\\&logoColor=white\\\\\\\&labelColor=1D1D1D">
+  <img alt="Proxmox VE" src="https://img.shields.io/badge/Proxmox-VE-E57000?style=flat-square\\\\\\\&logo=proxmox\\\\\\\&logoColor=white\\\\\\\&labelColor=1D1D1D">
+  <img alt="Windows Server 2022" src="https://img.shields.io/badge/Windows%20Server-2022-0078D4?style=flat-square\\\\\\\&labelColor=1D1D1D">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-LibreNMS-2496ED?style=flat-square\\\\\\\&logo=docker\\\\\\\&logoColor=white\\\\\\\&labelColor=1D1D1D">
+  <img alt="UniFi" src="https://img.shields.io/badge/UniFi-storage%20%26%20Protect-006FFF?style=flat-square\\\\\\\&logo=ubiquiti\\\\\\\&logoColor=white\\\\\\\&labelColor=1D1D1D">
   <br>
-  <img alt="CCNA certified" src="https://img.shields.io/badge/CCNA-certified-1BA0D7?style=flat-square\\\&logo=cisco\\\&logoColor=white\\\&labelColor=1D1D1D">
+  <img alt="CCNA certified" src="https://img.shields.io/badge/CCNA-certified-1BA0D7?style=flat-square\\\\\\\&logo=cisco\\\\\\\&logoColor=white\\\\\\\&labelColor=1D1D1D">
 
 </p>
 
@@ -102,7 +102,7 @@ Active Directory domain: `swagger.lab`
 * **Backups.** Servers and files back up to the UNAS Pro, separate from the R720's own drives.
 * **Safe publishing.** Configs are sanitized before they're committed. No passwords or secrets live in this repo.
 
-\---
+
 
 <p align="center"><sub>Built and documented by <a href="https://github.com/Rayan-Aldossary">Rayan Aldossary</a></sub></p>
 
