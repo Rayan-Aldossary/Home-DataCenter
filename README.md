@@ -22,6 +22,12 @@
   <img src="topology.svg" alt="Isometric topology: STC modem, Cisco ISR 4331 with NAT, OPNsense on a CloudGenix ION 3000, Catalyst 3850 core and access switches on a 2 x 10G LACP trunk, a VLAN 40 servers area with the Proxmox host and six VMs, UniFi UNAS Pro, UniFi Protect cameras, one UniFi access point with Internal and Guest SSIDs, and client zones for VLANs 10, 20 and 30" width="100%">
 </p>
 
+
+
+https://github.com/user-attachments/assets/3a2cfa0b-e954-41dc-9781-e4409f2cc408
+
+
+
 ### Design decisions
 
 - **NAT stays at the edge.** The ISR 4331 owns the internet link and NAT, so OPNsense filters and inspects traffic without a second layer of NAT.
