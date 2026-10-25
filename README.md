@@ -5,15 +5,15 @@
 </picture>
 
 <p align="center">
-  <img alt="Cisco IOS XE" src="https://img.shields.io/badge/Cisco-IOS%20XE-049FD9?style=flat-square\&logo=cisco\&logoColor=white\&labelColor=1D1D1D">
-  <img alt="OPNsense" src="https://img.shields.io/badge/OPNsense-firewall%20%26%20IDS-D94F00?style=flat-square\&logo=opnsense\&logoColor=white\&labelColor=1D1D1D">
-  <img alt="Proxmox VE" src="https://img.shields.io/badge/Proxmox-VE-E57000?style=flat-square\&logo=proxmox\&logoColor=white\&labelColor=1D1D1D">
-  <img alt="Windows Server 2022" src="https://img.shields.io/badge/Windows%20Server-2022-0078D4?style=flat-square\&labelColor=1D1D1D">
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-LibreNMS-2496ED?style=flat-square\&logo=docker\&logoColor=white\&labelColor=1D1D1D">
-  <img alt="UniFi" src="https://img.shields.io/badge/UniFi-storage%20%26%20Protect-006FFF?style=flat-square\&logo=ubiquiti\&logoColor=white\&labelColor=1D1D1D">
+  <img alt="Cisco IOS XE" src="https://img.shields.io/badge/Cisco-IOS%20XE-049FD9?style=flat-square\\\&logo=cisco\\\&logoColor=white\\\&labelColor=1D1D1D">
+  <img alt="OPNsense" src="https://img.shields.io/badge/OPNsense-firewall%20%26%20IDS-D94F00?style=flat-square\\\&logo=opnsense\\\&logoColor=white\\\&labelColor=1D1D1D">
+  <img alt="Proxmox VE" src="https://img.shields.io/badge/Proxmox-VE-E57000?style=flat-square\\\&logo=proxmox\\\&logoColor=white\\\&labelColor=1D1D1D">
+  <img alt="Windows Server 2022" src="https://img.shields.io/badge/Windows%20Server-2022-0078D4?style=flat-square\\\&labelColor=1D1D1D">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-LibreNMS-2496ED?style=flat-square\\\&logo=docker\\\&logoColor=white\\\&labelColor=1D1D1D">
+  <img alt="UniFi" src="https://img.shields.io/badge/UniFi-storage%20%26%20Protect-006FFF?style=flat-square\\\&logo=ubiquiti\\\&logoColor=white\\\&labelColor=1D1D1D">
   <br>
-  <img alt="CCNA certified" src="https://img.shields.io/badge/CCNA-certified-1BA0D7?style=flat-square\&logo=cisco\&logoColor=white\&labelColor=1D1D1D">
- 
+  <img alt="CCNA certified" src="https://img.shields.io/badge/CCNA-certified-1BA0D7?style=flat-square\\\&logo=cisco\\\&logoColor=white\\\&labelColor=1D1D1D">
+
 </p>
 
 A small company network, built at home on the same hardware businesses run: Cisco routing and switching, an OPNsense firewall, a Proxmox virtualization host, a Windows Server domain, UniFi storage and surveillance, and a monitoring stack.
@@ -34,7 +34,7 @@ The ISR 4331 handles the internet connection and NAT. OPNsense sits behind it as
 |CloudGenix ION 3000|OPNsense firewall and IDS between the edge router and the core|
 |Cisco Catalyst 3850-48|Core switch: layer 3, inter-VLAN routing, DHCP relay|
 |Cisco Catalyst 3850-48|Access switch: layer 2, 2 × 10G EtherChannel to the core|
-|Dell PowerEdge R720|Proxmox VE host, 384 GB RAM|
+|Dell PowerEdge R720|Proxmox VE host, 384 GB RAM + Dual CPUs|
 |UniFi UNAS Pro|7-bay storage for backups, files and camera footage|
 |UniFi Protect cameras|Surveillance|
 |UniFi access point|Internal and Guest SSIDs on one trunked port|
@@ -104,5 +104,5 @@ Active Directory domain: `swagger.lab`
 
 \---
 
-<p align="center"><sub>Built and documented by <a href="https://github.com/Rayan-Aldossary">Rayan Aldossary</a>, CCNA</sub></p>
+<p align="center"><sub>Built and documented by <a href="https://github.com/Rayan-Aldossary">Rayan Aldossary</a></sub></p>
 
