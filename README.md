@@ -11,10 +11,15 @@
   <img alt="Windows Server 2022" src="https://img.shields.io/badge/Windows%20Server-2022-0078D4?style=flat-square&labelColor=1D1D1D">
   <img alt="Docker" src="https://img.shields.io/badge/Docker-LibreNMS-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=1D1D1D">
   <img alt="UniFi" src="https://img.shields.io/badge/UniFi-storage%20%26%20Protect-006FFF?style=flat-square&logo=ubiquiti&logoColor=white&labelColor=1D1D1D">
+  <img alt="Ansible" src="https://img.shields.io/badge/Ansible-automation-EE0000?style=flat-square&logo=ansible&logoColor=white&labelColor=1D1D1D">
   <br>
   <img alt="CCNA certified" src="https://img.shields.io/badge/CCNA-certified-1BA0D7?style=flat-square&logo=cisco&logoColor=white&labelColor=1D1D1D">
 
 </p>
+
+## Lab in numbers
+
+<img src="lab-stats.svg" alt="22U rack, 6 virtual machines, 4 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
 
 ## Topology
 
@@ -39,6 +44,7 @@ https://github.com/user-attachments/assets/ad675a03-6e4b-45e0-aa67-8a97c1dce3f6
 - **One 20G uplink.** Two 10G links in an LACP port-channel join the core and access switches, for bandwidth and failover.
 - **Split hypervisor networking.** Proxmox is managed on VLAN 10 and passes VLANs 20 and 40 to its VMs over a separate trunk.
 - **One AP, two networks.** A single access point carries the Internal and Guest SSIDs on VLANs 20 and 30.
+- **Automation.** Ansible manages device configuration, so changes are repeatable and tracked.
 
 ## Hardware
 
