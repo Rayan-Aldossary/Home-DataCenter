@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="banner.svg">
-  <source media="(prefers-color-scheme: light)" srcset="banner-light.svg">
-  <img src="banner.svg" alt="Home Data Center: a 22U rack with a Cisco ISR 4331, OPNsense on a CloudGenix ION 3000, two Catalyst 3850 switches, a UniFi UNAS Pro and a Dell PowerEdge R720" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
+  <img src="assets/banner.svg" alt="Home Data Center: a 22U rack with a Cisco ISR 4331, OPNsense on a CloudGenix ION 3000, two Catalyst 3850 switches, a UniFi UNAS Pro and a Dell PowerEdge R720" width="100%">
 </picture>
 
 <br>
@@ -66,9 +66,11 @@ A home data center I designed, built and secured in a 22U rack. It runs the same
 
 The lab at a glance.
 
-<img src="lab-stats.svg" alt="22U rack, 6 virtual machines, 4 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
-
-<br>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
+  <img src="assets/stats-light.svg" alt="Lab in numbers: 22U rack, 6 virtual machines, 4 VLANs, 20G LACP core uplink, 384 GB hypervisor RAM, 7 NAS drive bays." width="100%">
+</picture>
 
 <br>
 
@@ -77,7 +79,7 @@ The lab at a glance.
 How everything connects, from the internet link down to each VLAN.
 
 <p align="center">
-  <img src="topology.svg" alt="Isometric topology: STC modem, Cisco ISR 4331 with NAT, OPNsense on a CloudGenix ION 3000, Catalyst 3850 core and access switches on a 2 x 10G LACP trunk, a VLAN 40 servers area with the Proxmox host and six VMs, UniFi UNAS Pro, UniFi Protect cameras, one UniFi access point with Internal and Guest SSIDs, and client zones for VLANs 10, 20 and 30" width="100%">
+  <img src="assets/topology.svg" alt="Isometric topology: STC modem, Cisco ISR 4331 with NAT, OPNsense on a CloudGenix ION 3000, Catalyst 3850 core and access switches on a 2 x 10G LACP trunk, a VLAN 40 servers area with the Proxmox host and six VMs, UniFi UNAS Pro, UniFi Protect cameras, one UniFi access point with Internal and Guest SSIDs, and client zones for VLANs 10, 20 and 30" width="100%">
 </p>
 
 > [!NOTE]
