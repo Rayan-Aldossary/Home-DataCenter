@@ -18,7 +18,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation." width="702">
+  <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation, Wazuh SIEM, Splunk Free log analytics and LibreNMS network monitoring." width="702">
 </picture>
 </p>
 
@@ -60,11 +60,17 @@ A home data center I designed, built and secured in a 22U rack. It runs the same
 > [!TIP]
 > **New here?** Start with the **Topology** diagram and the **Walkthrough** video for the big picture. **Design decisions** explains why it's built this way. The sections after it hold the details: hardware, network, servers and security.
 
+<br>
+
 ## <a name="lab-in-numbers"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-lab-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-lab-light.svg"><img src="assets/h-lab-light.svg" height="32" align="top" alt=""></picture>Lab in numbers
 
 The lab at a glance.
 
 <img src="lab-stats.svg" alt="22U rack, 6 virtual machines, 4 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
+
+<br>
+
+<br>
 
 ## <a name="topology"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-topology-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-topology-light.svg"><img src="assets/h-topology-light.svg" height="32" align="top" alt=""></picture>Topology
 
@@ -77,11 +83,15 @@ How everything connects, from the internet link down to each VLAN.
 > [!NOTE]
 > **Reading the diagram:** traffic from the internet comes in through the STC modem and the ISR 4331, passes through OPNsense to be filtered and inspected, then reaches the core switch, which routes it to the right VLAN. The access switch connects every device, and each colored zone is one VLAN.
 
+<br>
+
 ## <a name="walkthrough"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-walkthrough-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-walkthrough-light.svg"><img src="assets/h-walkthrough-light.svg" height="32" align="top" alt=""></picture>Walkthrough
 
 A guided tour of the topology, from the edge router down to every VLAN and virtual machine.
 
 https://github.com/user-attachments/assets/00f0f240-d347-4e98-bb69-2ba5701e0d6b
+
+<br>
 
 ## <a name="design-decisions"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-design-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-design-light.svg"><img src="assets/h-design-light.svg" height="32" align="top" alt=""></picture>Design decisions
 
@@ -93,6 +103,8 @@ Why the network is built the way it is.
   <img src="assets/design-decisions-light.svg" alt="Design decisions: NAT stays at the edge. The ISR 4331 owns the internet link and runs NAT, so OPNsense can filter and inspect traffic without adding a second layer of NAT. Routing happens at the core. The core 3850 routes between VLANs and relays DHCP to Active Directory, leaving the firewall to guard traffic in and out of the network. One 20G uplink. Two 10G links in an LACP port-channel join the core and access switches. That doubles the bandwidth, and the uplink stays up if one cable fails. Split hypervisor networking. Proxmox is managed on VLAN 10, while its VMs use a separate trunk for VLANs 20 and 40, so host management never shares a link with VM traffic. One AP, two networks. One access point broadcasts the Internal and Guest SSIDs. Each SSID maps to its own VLAN, and both ride a single trunked switch port. Automation. Ansible manages device configuration, so every change is repeatable, reviewable and tracked." width="100%">
 </picture>
 
+<br>
+
 ## <a name="hardware"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-hardware-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-hardware-light.svg"><img src="assets/h-hardware-light.svg" height="32" align="top" alt=""></picture>Hardware
 
 What's in the rack and what each device does. The chip in each corner is the device's position in the rack.
@@ -100,8 +112,10 @@ What's in the rack and what each device does. The chip in each corner is the dev
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hardware-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hardware-light.svg">
-  <img src="assets/hardware-light.svg" alt="Hardware: Edge: Cisco ISR 4331. Internet link and NAT. Hands traffic to the firewall over a /30 transit link. Firewall: CloudGenix ION 3000. Runs OPNsense: stateful filtering and Suricata intrusion detection between the edge and the core. Core: Catalyst 3850-48. Layer 3 switch that routes between VLANs and relays DHCP requests. Access: Catalyst 3850-48. Layer 2 switch for every device, with a 2 × 10G uplink to the core. Compute: Dell PowerEdge R720. Proxmox VE host with dual CPUs and 384 GB of RAM, running six VMs. Storage: UniFi UNAS Pro. Seven-bay storage for backups, shared files and all camera footage. Wireless: UniFi access point. Internal and Guest Wi-Fi from one trunked switch port. Surveillance: UniFi Protect cameras. Powered over the switch port, recording footage to the UNAS Pro. Power: UniFi UPS and rack PDU. Battery backup and power distribution for the whole rack." width="100%">
+  <img src="assets/hardware-light.svg" alt="Hardware: Edge: Cisco ISR 4331. Internet link and NAT. Hands traffic to the firewall over a /30 transit link. Firewall: CloudGenix ION 3000. Runs OPNsense: stateful filtering and Suricata intrusion detection between the edge and the core. Core: Catalyst 3850-48. Layer 3 switch that routes between VLANs and relays DHCP requests. Access: Catalyst 3850-48. Layer 2 switch for every device, with a 2 × 10G uplink to the core. Compute: Dell PowerEdge R720. Proxmox VE host with dual CPUs and 384 GB of RAM, running six VMs. Storage: UniFi UNAS Pro. Seven-bay storage for backups, file shares and the camera archive. Wireless: UniFi access point. Internal and Guest Wi-Fi from one trunked switch port. Surveillance: UniFi Protect cameras. Powered over the switch port, with footage archived to the UNAS Pro. Power: UniFi UPS and rack PDU. Battery backup and power distribution for the whole rack." width="100%">
 </picture>
+
+<br>
 
 ## <a name="rack-elevation"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-rack-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-rack-light.svg"><img src="assets/h-rack-light.svg" height="32" align="top" alt=""></picture>Rack elevation
 
@@ -113,6 +127,8 @@ The 22U rack, front view, from top to bottom. The colored edge on each device ma
   <img src="assets/rack-light.svg" alt="Rack elevation, 22U, top to bottom: U19 to 22 reserved, U18 vented panel, U17 Cisco ISR 4331, U16 CloudGenix ION 3000 running OPNsense, U15 blank panel, U14 core Catalyst 3850, U13 blank panel, U12 access Catalyst 3850, U11 24-port patch panel, U9 to 10 UniFi UNAS Pro, U7 to 8 Dell PowerEdge R720, U6 PDU, U5 brush panel, U1 to 4 reserved." width="100%">
 </picture>
 
+<br>
+
 ## <a name="network"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-network-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-network-light.svg"><img src="assets/h-network-light.svg" height="32" align="top" alt=""></picture>Network
 
 Four VLANs split the network by role. Each card shows the subnet, the gateway and how devices on it get their addresses.
@@ -123,6 +139,8 @@ Four VLANs split the network by role. Each card shows the subnet, the gateway an
   <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP pool on the core switch, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines and the UNAS Pro. Native VLAN 999 carries no hosts." width="100%">
 </picture>
 
+<br>
+
 ## <a name="backbone-links"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-backbone-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-backbone-light.svg"><img src="assets/h-backbone-light.svg" height="32" align="top" alt=""></picture>Backbone links
 
 The chain from the internet to the access switch. Each routed hop is its own /30 point-to-point subnet, and the two switches are joined by a 2 × 10G port-channel.
@@ -132,6 +150,8 @@ The chain from the internet to the access switch. Each routed hop is its own /30
   <source media="(prefers-color-scheme: light)" srcset="assets/backbone-light.svg">
   <img src="assets/backbone-light.svg" alt="Backbone links: STC modem to ISR 4331 Gi0/0/1 over DHCP; ISR Gi0/0/0 192.168.60.1 to OPNsense WAN 192.168.60.2 on 192.168.60.0/30; OPNsense LAN 192.168.50.1 to core switch Gi1/0/1 192.168.50.2 on 192.168.50.0/30; core Te1/0/1-2 to access Te1/0/1-2 as port-channel 1, 2 x 10G LACP trunk." width="100%">
 </picture>
+
+<br>
 
 ## <a name="access-switch-ports"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-ports-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-ports-light.svg"><img src="assets/h-ports-light.svg" height="32" align="top" alt=""></picture>Access switch ports
 
@@ -146,6 +166,8 @@ Every device plugs into the access switch. Access ports carry one VLAN; trunk po
 > [!NOTE]
 > **Good to know:** every gateway is the last usable address in its subnet (`.254`) and lives on the core switch. Trunks carry only the VLANs they need: VLANs 20 and 40 to Proxmox, VLANs 20 and 30 to the access point.
 
+<br>
+
 ## <a name="servers"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-servers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-servers-light.svg"><img src="assets/h-servers-light.svg" height="32" align="top" alt=""></picture>Servers
 
 Six virtual machines run on Proxmox: four Windows Server 2022 servers, a Windows 11 client and a Linux Docker host. The Windows machines form the `swagger.lab` Active Directory domain.
@@ -159,6 +181,8 @@ Six virtual machines run on Proxmox: four Windows Server 2022 servers, a Windows
 > [!NOTE]
 > **SWAGGER-WKS-01 is a VM, not a physical PC.** It runs on the same Proxmox host as the servers, but its network card sits on the VLAN 20 side of the trunk, so it behaves like any other Internal client and gets its address by DHCP from SWAGGER-DC-01.
 
+<br>
+
 ## <a name="containers-on-swagger-nms-01"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-containers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-containers-light.svg"><img src="assets/h-containers-light.svg" height="32" align="top" alt=""></picture>Containers on SWAGGER-NMS-01
 
 The monitoring and security tools run as Docker containers on SWAGGER-NMS-01.
@@ -168,6 +192,8 @@ The monitoring and security tools run as Docker containers on SWAGGER-NMS-01.
   <source media="(prefers-color-scheme: light)" srcset="assets/containers-light.svg">
   <img src="assets/containers-light.svg" alt="Docker host SWAGGER-NMS-01 at 192.168.40.5 on a macvlan network, each tool with its own VLAN 40 address. Containers: Wazuh: SIEM: collects logs and agent data, detects threats and checks file integrity.; Splunk Free: Searches, dashboards and reports over the same logs.; LibreNMS: Watches every switch, router and the firewall over SNMP: health, traffic and uptime.; Portainer: Web interface for managing every container on the host." width="100%">
 </picture>
+
+<br>
 
 ## <a name="security-design"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-security-light.svg"><img src="assets/h-security-light.svg" height="32" align="top" alt=""></picture>Security design
 
@@ -184,7 +210,7 @@ Zone 4 isn't a separate cable path. It's a privilege boundary enforced by an acc
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/security-controls-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/security-controls-light.svg">
-  <img src="assets/security-controls-light.svg" alt="Security controls in place: Perimeter, Firewall and IDS: OPNsense filters traffic between the edge and the core; Suricata inspects it.; Perimeter, No inbound exposure: No port forwards, no VPN and no public services.; Network, Segmentation: Each role gets its own VLAN; the native VLAN carries no hosts.; Network, Guest isolation: Guest Wi-Fi reaches the internet only, with DHCP from the core switch.; Access, Admin-only SSH: Network devices accept SSH only from the admin workstation.; Identity, Active Directory: Two domain controllers, a certificate authority and NPS for RADIUS.; Endpoints, Patching: WSUS manages Windows updates across the domain.; Monitoring, Logs and alerts: Wazuh and Splunk Free collect and search logs; LibreNMS watches every device.; Data, Backups: Servers and files back up to the UNAS Pro, off the R720&#x27;s own drives.; Physical, Surveillance: UniFi Protect cameras record to the UNAS Pro.; Publishing, Sanitized configs: Configs are cleaned before they&#x27;re committed; no passwords or secrets here." width="100%">
+  <img src="assets/security-controls-light.svg" alt="Security controls in place: Perimeter, Firewall and IDS: OPNsense filters traffic between the edge and the core; Suricata inspects it.; Perimeter, No inbound exposure: No port forwards, no VPN and no public services.; Network, Segmentation: Each role gets its own VLAN; the native VLAN carries no hosts.; Network, Guest isolation: Guest Wi-Fi reaches the internet only, with DHCP from the core switch.; Access, Admin-only SSH: Network devices accept SSH only from the admin workstation.; Identity, Active Directory: Two domain controllers, a certificate authority and NPS for RADIUS.; Endpoints, Patching: WSUS manages Windows updates across the domain.; Monitoring, Logs and alerts: Wazuh and Splunk Free collect and search logs; LibreNMS watches every device.; Data, Backups: Servers and files back up to the UNAS Pro, off the R720&#x27;s own drives.; Physical, Surveillance: UniFi Protect cameras, with footage archived to the UNAS Pro.; Publishing, Sanitized configs: Configs are cleaned before they&#x27;re committed; no passwords or secrets here." width="100%">
 </picture>
 
 <br>
