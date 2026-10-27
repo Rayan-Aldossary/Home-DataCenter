@@ -18,7 +18,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation, Wazuh SIEM, Splunk log analytics and LibreNMS network monitoring." width="702">
+  <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation, Wazuh SIEM, Splunk Free log analytics and LibreNMS network monitoring." width="702">
 </picture>
 </p>
 
@@ -143,12 +143,12 @@ Four VLANs split the network by role. Each card shows the subnet, the gateway an
 
 ## <a name="backbone-links"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-backbone-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-backbone-light.svg"><img src="assets/h-backbone-light.svg" height="32" align="top" alt=""></picture>Backbone links
 
-The chain from the internet to the access switch. Each routed hop is its own /30 point-to-point subnet, and the two switches are joined by a 2 × 10G port-channel.
+How traffic gets from the internet to the access switch. Each card is a device and each line is a cable. Where a cable meets a card, the tag shows that device's port and IP; the label on the cable is the link's subnet.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/backbone-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/backbone-light.svg">
-  <img src="assets/backbone-light.svg" alt="Backbone links: STC modem to ISR 4331 Gi0/0/1 over DHCP; ISR Gi0/0/0 192.168.60.1 to OPNsense WAN 192.168.60.2 on 192.168.60.0/30; OPNsense LAN 192.168.50.1 to core switch Gi1/0/1 192.168.50.2 on 192.168.50.0/30; core Te1/0/1-2 to access Te1/0/1-2 as port-channel 1, 2 x 10G LACP trunk." width="100%">
+  <img src="assets/backbone-light.svg" alt="Backbone links, top to bottom. STC modem LAN port to SWAGGER-4331-ISR01 Gi0/0/1 over DHCP, 1 GbE. ISR Gi0/0/0 192.168.60.1 to OPNsense firewall WAN 192.168.60.2 on 192.168.60.0/30, 1 GbE. OPNsense LAN 192.168.50.1 to SWAGGER-CORE-SW01 Gi1/0/1 192.168.50.2 on 192.168.50.0/30, 1 GbE. Core Te1/0/1-2 to SWAGGER-ACCESS-SW01 Te1/0/1-2 as port-channel 1, a 2 x 10G LACP trunk carrying all VLANs." width="100%">
 </picture>
 
 <br>
