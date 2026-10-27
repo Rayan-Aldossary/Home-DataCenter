@@ -4,11 +4,31 @@
   <img src="banner.svg" alt="Home Data Center: a 22U rack with a Cisco ISR 4331, OPNsense on a CloudGenix ION 3000, two Catalyst 3850 switches, a UniFi UNAS Pro and a Dell PowerEdge R720" width="100%">
 </picture>
 
+<br>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/label-built-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/label-built-light.svg">
+  <img src="assets/label-built-light.svg" alt="Built with" width="720">
+</picture>
+</p>
+
 <p align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
   <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation. CCNA certified." width="720">
+</picture>
+</p>
+
+<br>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/label-jump-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/label-jump-light.svg">
+  <img src="assets/label-jump-light.svg" alt="Jump to a section" width="720">
 </picture>
 </p>
 
@@ -24,6 +44,8 @@
 <a href="#servers"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-servers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-servers-light.svg"><img src="assets/nav-servers-light.svg" alt="Servers" height="40" vspace="5"></picture></a>&nbsp;
 <a href="#security-design"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-security-light.svg"><img src="assets/nav-security-light.svg" alt="Security" height="40" vspace="5"></picture></a>&nbsp;
 </p>
+
+<br>
 
 ## <a name="overview"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-overview-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-overview-light.svg"><img src="assets/h-overview-light.svg" height="32" align="top" alt=""></picture>Overview
 
