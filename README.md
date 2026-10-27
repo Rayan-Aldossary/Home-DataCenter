@@ -66,11 +66,9 @@ A home data center I designed, built and secured in a 22U rack. It runs the same
 
 The lab at a glance.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
-  <img src="assets/stats-light.svg" alt="Lab in numbers: 22U rack, 6 virtual machines, 4 VLANs, 20G LACP core uplink, 384 GB hypervisor RAM, 7 NAS drive bays." width="100%">
-</picture>
+<img src="assets/lab-stats.svg" alt="22U rack, 6 virtual machines, 4 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
+
+<br>
 
 <br>
 
