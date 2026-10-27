@@ -18,7 +18,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation, Wazuh SIEM, Splunk Free log analytics and LibreNMS network monitoring." width="702">
+  <img src="assets/stack-light.svg" alt="Built with Cisco IOS XE, OPNsense firewall and IDS, Proxmox VE, Windows Server 2022, Docker, UniFi storage and Protect, Ansible automation, Wazuh SIEM, Splunk log analytics and LibreNMS network monitoring." width="702">
 </picture>
 </p>
 
