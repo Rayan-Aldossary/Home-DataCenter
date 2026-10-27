@@ -22,6 +22,7 @@
   <a href="#walkthrough"><b>Walkthrough</b></a> ·
   <a href="#design-decisions"><b>Design</b></a> ·
   <a href="#hardware"><b>Hardware</b></a> ·
+  <a href="#rack-elevation"><b>Rack</b></a> ·
   <a href="#network"><b>Network</b></a> ·
   <a href="#servers"><b>Servers</b></a> ·
   <a href="#security-design"><b>Security</b></a>
@@ -80,10 +81,10 @@ What's in the rack and what each device does. The chip in each corner is the dev
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hardware-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/hardware-light.svg">
-  <img src="assets/hardware-light.svg" alt="Hardware: Edge: Cisco ISR 4331. Internet link and NAT. Hands traffic to the firewall over a /30 transit link. Firewall: CloudGenix ION 3000. Runs OPNsense: stateful filtering and Suricata intrusion detection between the edge and the core. Core: Catalyst 3850-48. Layer 3 switch. Routes between VLANs and relays DHCP to Active Directory. Access: Catalyst 3850-48. Layer 2 switch. Connects every device, with a 2 × 10G LACP uplink to the core. Compute: Dell PowerEdge R720. Proxmox VE host with dual CPUs and 384 GB of RAM, running six VMs. Storage: UniFi UNAS Pro. Seven-bay storage for backups, shared files and all camera footage. Wireless: UniFi access point. Internal and Guest Wi-Fi from one trunked switch port. Surveillance: UniFi Protect cameras. Cameras powered over the switch port, recording footage to the UNAS Pro. Power: UniFi UPS and rack PDU. Battery backup and power distribution for the whole rack." width="100%">
+  <img src="assets/hardware-light.svg" alt="Hardware: Edge: Cisco ISR 4331. Internet link and NAT. Hands traffic to the firewall over a /30 transit link. Firewall: CloudGenix ION 3000. Runs OPNsense: stateful filtering and Suricata intrusion detection between the edge and the core. Core: Catalyst 3850-48. Layer 3 switch that routes between VLANs and relays DHCP requests. Access: Catalyst 3850-48. Layer 2 switch for every device, with a 2 × 10G uplink to the core. Compute: Dell PowerEdge R720. Proxmox VE host with dual CPUs and 384 GB of RAM, running six VMs. Storage: UniFi UNAS Pro. Seven-bay storage for backups, shared files and all camera footage. Wireless: UniFi access point. Internal and Guest Wi-Fi from one trunked switch port. Surveillance: UniFi Protect cameras. Powered over the switch port, recording footage to the UNAS Pro. Power: UniFi UPS and rack PDU. Battery backup and power distribution for the whole rack." width="100%">
 </picture>
 
-### Rack elevation
+## Rack elevation
 
 The 22U rack, front view, from top to bottom. The colored edge on each device matches its layer above.
 
@@ -103,7 +104,7 @@ Four VLANs split the network by role. Each card shows the subnet, the gateway an
   <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP pool on the core switch, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines and the UNAS Pro. Native VLAN 999 carries no hosts." width="100%">
 </picture>
 
-### Backbone links
+## Backbone links
 
 The chain from the internet to the access switch. Each routed hop is its own /30 point-to-point subnet, and the two switches are joined by a 2 × 10G port-channel.
 
@@ -113,7 +114,7 @@ The chain from the internet to the access switch. Each routed hop is its own /30
   <img src="assets/backbone-light.svg" alt="Backbone links: STC modem to ISR 4331 Gi0/0/1 over DHCP; ISR Gi0/0/0 192.168.60.1 to OPNsense WAN 192.168.60.2 on 192.168.60.0/30; OPNsense LAN 192.168.50.1 to core switch Gi1/0/1 192.168.50.2 on 192.168.50.0/30; core Te1/0/1-2 to access Te1/0/1-2 as port-channel 1, 2 x 10G LACP trunk." width="100%">
 </picture>
 
-### Access switch ports
+## Access switch ports
 
 Every device plugs into the access switch. Access ports carry one VLAN; trunk ports carry several.
 
@@ -139,7 +140,7 @@ Six virtual machines run on Proxmox: four Windows Server 2022 servers, a Windows
 > [!NOTE]
 > **SWAGGER-WKS-01 is a VM, not a physical PC.** It runs on the same Proxmox host as the servers, but its network card sits on the VLAN 20 side of the trunk, so it behaves like any other Internal client and gets its address by DHCP from SWAGGER-DC-01.
 
-### Containers on SWAGGER-NMS-01
+## Containers on SWAGGER-NMS-01
 
 The monitoring and security tools run as Docker containers on SWAGGER-NMS-01.
 
