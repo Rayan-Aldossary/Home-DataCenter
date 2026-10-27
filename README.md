@@ -18,11 +18,11 @@
 
 ## Overview
 
-This repo documents my home data center: how it's designed, built and secured. Start with the topology and walkthrough, then dig into the design decisions, hardware and addressing below. The full build guide lives in [`docs/`](docs/BUILD-GUIDE.md).
+This repo documents my home data center: how it's designed, built and secured. Start with the topology and walkthrough, then dig into the design decisions, hardware and addressing below.
 
 ## Lab in numbers
 
-<img src="lab-stats.svg" alt="22U rack, 6 virtual machines, 5 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
+<img src="lab-stats.svg" alt="22U rack, 6 virtual machines, 4 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
 
 ## Topology
 
@@ -91,7 +91,6 @@ Why the network is built the way it is:
 |20|Internal|192.168.20.0/24|192.168.20.254|DHCP from SWAGGER-DC-01, relayed by the core|
 |30|Guest|192.168.30.0/24|192.168.30.254|DHCP from the core switch|
 |40|Servers|192.168.40.0/24|192.168.40.254|Static|
-|50|Cameras|192.168.70.0/24|192.168.70.254|DHCP from the core switch|
 |999|Native|None|None|No hosts|
 |Transit|ISR 4331 to OPNsense|192.168.60.0/30|None|Static|
 |Transit|OPNsense to core switch|192.168.50.0/30|None|Static|
@@ -113,22 +112,16 @@ Active Directory domain: `swagger.lab`
 
 ## Security design
 
-* **Segmentation.** Management, users, guests, servers and cameras each get their own VLAN. The native VLAN carries no hosts.
+* **Segmentation.** Management, users, guests and servers each get their own VLAN. The native VLAN carries no hosts.
 * **Firewall and IDS.** OPNsense filters and inspects traffic between the edge router and the core.
 * **Guest isolation.** The Guest VLAN gets internet access only, with its own DHCP on the core switch.
 * **No inbound exposure.** No port forwards, no VPN and no public services.
 * **Identity.** Active Directory with two domain controllers, plus a certificate authority and NPS for RADIUS.
 * **Patching.** WSUS manages Windows updates across the domain.
 * **Monitoring.** LibreNMS watches every device over SNMP, alongside security monitoring tools on Docker.
-* **Surveillance.** UniFi Protect cameras on their own VLAN that can reach only the UNAS Pro, where the footage is kept.
+* **Surveillance.** UniFi Protect cameras, with footage kept on the UNAS Pro.
 * **Backups.** Servers and files back up to the UNAS Pro, separate from the R720's own drives.
 * **Safe publishing.** Configs are sanitized before they're committed. No passwords or secrets live in this repo.
-
-## Documentation
-
-The complete build guide, sheet by sheet: topology, addressing, cabling, rack elevation, security, configuration, virtual machines and containers.
-
-**[Open the build guide](docs/BUILD-GUIDE.md)** · [Download the PDF](docs/SWAGGER-Lab-Build-Guide.pdf)
 
 <p align="center"><sub>Built and documented by <a href="https://github.com/Rayan-Aldossary">Rayan Aldossary</a></sub></p>
 
