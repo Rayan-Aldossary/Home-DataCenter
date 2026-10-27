@@ -17,15 +17,16 @@
 </p>
 
 <p align="center">
-  <a href="#overview"><b>Overview</b></a> ·
-  <a href="#topology"><b>Topology</b></a> ·
-  <a href="#walkthrough"><b>Walkthrough</b></a> ·
-  <a href="#design-decisions"><b>Design</b></a> ·
-  <a href="#hardware"><b>Hardware</b></a> ·
-  <a href="#rack-elevation"><b>Rack</b></a> ·
-  <a href="#network"><b>Network</b></a> ·
-  <a href="#servers"><b>Servers</b></a> ·
-  <a href="#security-design"><b>Security</b></a>
+<a href="#overview"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-overview-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-overview-light.svg"><img src="assets/nav-overview-light.svg" alt="Overview" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#topology"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-topology-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-topology-light.svg"><img src="assets/nav-topology-light.svg" alt="Topology" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#walkthrough"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-walkthrough-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-walkthrough-light.svg"><img src="assets/nav-walkthrough-light.svg" alt="Walkthrough" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#design-decisions"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-design-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-design-light.svg"><img src="assets/nav-design-light.svg" alt="Design" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#hardware"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-hardware-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-hardware-light.svg"><img src="assets/nav-hardware-light.svg" alt="Hardware" height="40" vspace="5"></picture></a>&nbsp;
+<br>
+<a href="#rack-elevation"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-rack-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-rack-light.svg"><img src="assets/nav-rack-light.svg" alt="Rack" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#network"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-network-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-network-light.svg"><img src="assets/nav-network-light.svg" alt="Network" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#servers"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-servers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-servers-light.svg"><img src="assets/nav-servers-light.svg" alt="Servers" height="40" vspace="5"></picture></a>&nbsp;
+<a href="#security-design"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-security-light.svg"><img src="assets/nav-security-light.svg" alt="Security" height="40" vspace="5"></picture></a>&nbsp;
 </p>
 
 ## Overview
