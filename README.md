@@ -83,17 +83,15 @@ What's in the rack and what each device does. The chip in each corner is the dev
   <img src="assets/hardware-light.svg" alt="Hardware: Edge: Cisco ISR 4331. Internet link and NAT. Hands traffic to the firewall over a /30 transit link. Firewall: CloudGenix ION 3000. Runs OPNsense: stateful filtering and Suricata intrusion detection between the edge and the core. Core: Catalyst 3850-48. Layer 3 switch. Routes between VLANs and relays DHCP to Active Directory. Access: Catalyst 3850-48. Layer 2 switch. Connects every device, with a 2 × 10G LACP uplink to the core. Compute: Dell PowerEdge R720. Proxmox VE host with dual CPUs and 384 GB of RAM, running six VMs. Storage: UniFi UNAS Pro. Seven-bay storage for backups, shared files and all camera footage. Wireless: UniFi access point. Internal and Guest Wi-Fi from one trunked switch port. Surveillance: UniFi Protect cameras. Cameras powered over the switch port, recording footage to the UNAS Pro. Power: UniFi UPS and rack PDU. Battery backup and power distribution for the whole rack." width="100%">
 </picture>
 
-<details>
-<summary><b>Rack elevation</b>: the 22U rack, top to bottom</summary>
-<br>
+### Rack elevation
+
+The 22U rack, front view, from top to bottom. The colored edge on each device matches its layer above.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/rack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/rack-light.svg">
   <img src="assets/rack-light.svg" alt="Rack elevation, 22U, top to bottom: U19 to 22 reserved, U18 vented panel, U17 Cisco ISR 4331, U16 CloudGenix ION 3000 running OPNsense, U15 blank panel, U14 core Catalyst 3850, U13 blank panel, U12 access Catalyst 3850, U11 24-port patch panel, U9 to 10 UniFi UNAS Pro, U7 to 8 Dell PowerEdge R720, U6 PDU, U5 brush panel, U1 to 4 reserved." width="100%">
 </picture>
-
-</details>
 
 ## Network
 
