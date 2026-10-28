@@ -215,4 +215,16 @@ Zone 4 isn't a separate cable path. It's a privilege boundary enforced by an acc
 
 <br>
 
+## <a name="detection-pipeline"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-pipeline-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-pipeline-light.svg"><img src="assets/h-pipeline-light.svg" height="32" align="top" alt=""></picture>Detection pipeline
+
+The lab's devices send their logs to Wazuh, which runs in Docker on SWAGGER-NMS-01. The animation follows one attack from start to finish: a brute-force login attempt on SWAGGER-DC-01 raises a level 10 alert, Wazuh blocks the source, and the alert is forwarded to Splunk.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/pipeline-light.svg">
+  <img src="assets/pipeline-light.svg" alt="Detection pipeline. Five log sources feed Wazuh: the Cisco network (ISR 4331 and Catalyst 3850s), OPNsense with Suricata (firewall logs and IDS alerts), the Windows domain (SWAGGER-DC-01, DC-02, FS-01 and CA-01), Proxmox and Docker, and UniFi. Wazuh, running in Docker on SWAGGER-NMS-01, decodes the logs, correlates them against its rules and responds, then forwards events to Splunk for search and dashboards. In the animation, a brute force attempt on SWAGGER-DC-01 raises a level 10 alert, active response blocks the source, and the alert is forwarded to Splunk." width="100%">
+</picture>
+
+<br>
+
 <p align="center"><sub>Built and documented by <a href="https://github.com/Rayan-Aldossary">Rayan Aldossary</a></sub></p>
