@@ -59,7 +59,7 @@ A home data center I designed, built and secured in a 22U rack. It runs the same
 </picture>
 
 > [!TIP]
-> **New here?** Start with the **Topology** diagram and the **Walkthrough** video for the big picture. **Design decisions** explains why it's built this way. The sections after it hold the details: hardware, network, servers and security.
+> **New here?** Start with the **Topology** diagram and the **Walkthrough** video for the big picture. **Design decisions** explains why it's built this way. The sections after it hold the details: hardware, network, servers, domain and security.
 
 <br>
 
@@ -137,7 +137,7 @@ Five VLANs split the network by role, plus a native VLAN that carries no hosts. 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/vlans-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/vlans-light.svg">
-  <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP pool on the core switch, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines and the UNAS Pro. 60 Cameras: 192.168.60.0/24, gateway .254, DHCP pool on the core switch, for four PoE cameras and the NVR. Native VLAN 999: no subnet and no hosts, native on the switch uplink and the server trunk." width="100%">
+  <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the access points, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP pool on the core switch, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines and the UNAS Pro. 60 Cameras: 192.168.60.0/24, gateway .254, DHCP pool on the core switch, for four PoE cameras and the NVR. Native VLAN 999: no subnet and no hosts, native on the switch uplink and the server trunk." width="100%">
 </picture>
 
 <br>
