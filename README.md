@@ -164,7 +164,7 @@ Every device plugs into the access switch. Access ports carry one VLAN; trunk po
   <img src="assets/switch-ports-light.svg" alt="Access switch ports: Gi1/0/1 access VLAN 10 admin workstation; Gi1/0/2 trunk 20 and 30 UniFi AP-1, ground floor, native VLAN 10; Gi1/0/3 trunk 20 and 30 UniFi AP-2, first floor, native VLAN 10; Gi1/0/4 access VLAN 20 internal workstation; Gi1/0/5-8 access VLAN 60 PoE cameras; Gi1/0/9 access VLAN 60 NVR; Gi1/0/10 access VLAN 10 R720 NIC1 Proxmox management; Gi1/0/11 trunk 20 and 40 R720 NIC2 VM traffic; Gi1/0/12 access VLAN 40 UniFi UNAS Pro; Gi1/0/13-48 shut down; Te1/0/1-2 LACP trunk to the core switch." width="100%">
 </picture>
 
-How it's cabled: each patch panel port feeds the switch port with the same number. Cord colors follow the VLANs, and trunk cords are striped with the VLANs they carry.
+How it's cabled: each patch panel port feeds the switch port with the same number. Every cord has a flag label with its port and device, cord colors follow the VLANs, and trunk cords are striped with the VLANs they carry.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/cabling-dark.svg">
