@@ -55,7 +55,7 @@ A home data center I designed, built and secured myself, to run and protect my o
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/overview-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/overview-light.svg">
-  <img src="assets/overview-light.svg" alt="Overview: Networking with a Cisco ISR 4331, two Catalyst 3850 switches, 5 VLANs and a 20G core uplink. Servers and storage with a Dell R720 running Proxmox, six VMs in an Active Directory domain and a UniFi UNAS Pro. Security with an OPNsense firewall and Suricata IDS, Wazuh and Splunk Free, and isolated guest Wi-Fi." width="100%">
+  <img src="assets/overview-light.svg" alt="Overview: Networking with a Cisco ISR 4331, two Catalyst 3850 switches, 6 VLANs and a 20G core uplink. Servers and storage with a Dell R720 running Proxmox, six VMs in an Active Directory domain and a UniFi UNAS Pro. Security with an OPNsense firewall and Suricata IDS, Wazuh and Splunk Free, and isolated guest Wi-Fi." width="100%">
 </picture>
 
 > [!TIP]
@@ -67,7 +67,7 @@ A home data center I designed, built and secured myself, to run and protect my o
 
 The lab at a glance.
 
-<img src="assets/lab-stats.svg" alt="22U rack, 6 virtual machines, 5 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
+<img src="assets/lab-stats.svg" alt="22U rack, 6 virtual machines, 6 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
 
 <br>
 
@@ -78,7 +78,7 @@ The lab at a glance.
 How everything connects, from the internet link down to each VLAN.
 
 <p align="center">
-  <img src="assets/topology.svg" alt="Isometric topology: STC modem, Cisco ISR 4331 with NAT, OPNsense on a CloudGenix ION 3000, Catalyst 3850 core and access switches on a 2 x 10G LACP trunk, a VLAN 40 servers area with the Proxmox host and six VMs, UniFi UNAS Pro, a VLAN 50 camera area with four PoE cameras and an NVR, two UniFi access points with Internal and Guest SSIDs and 802.11r roaming, and client zones for VLANs 10, 20 and 30" width="100%">
+  <img src="assets/topology.svg" alt="Isometric topology: STC modem, Cisco ISR 4331 with NAT, OPNsense on a CloudGenix ION 3000, Catalyst 3850 core and access switches on a 2 x 10G LACP trunk, a VLAN 40 servers area with the Proxmox host and six VMs, a VLAN 60 storage area with the UniFi UNAS Pro, a VLAN 50 camera area with four PoE cameras and an NVR, two UniFi access points with Internal and Guest SSIDs and 802.11r roaming, and client zones for VLANs 10, 20 and 30" width="100%">
 </p>
 
 > [!NOTE]
@@ -101,7 +101,7 @@ Why the network is built the way it is.
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/design-decisions-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/design-decisions-light.svg">
-  <img src="assets/design-decisions-light.svg" alt="Design decisions: NAT stays at the edge. The STC modem and the ISR 4331 handle NAT. OPNsense adds none of its own, so it filters and inspects traffic with the real internal addresses. Routing happens at the core. The core 3850 is the gateway for every VLAN and relays DHCP, leaving the firewall to guard traffic in and out of the network. One 20G uplink. Two 10G links in an LACP port-channel join the core and access switches. That doubles the bandwidth, and the uplink stays up if one cable fails. Split hypervisor networking. Proxmox is managed on VLAN 10, while its VMs use a separate trunk for VLANs 20 and 40, so host management never shares a link with VM traffic. Two APs, two networks. An access point on each floor broadcasts the Internal and Guest SSIDs, each mapped to its own VLAN. 802.11r lets devices roam between floors without dropping. Two DHCP servers, one relay. The core relays every DHCP request. Internal clients get addresses from the domain controller, while guests and cameras get theirs from OPNsense, so neither ever talks to a server. Guests and cameras kept apart. Access lists on the core keep both VLANs away from the trusted networks. Guests only reach the internet, and the admin workstation can still reach in to manage the cameras. Automation. Ansible manages device configuration, so every change is repeatable, reviewable and tracked." width="100%">
+  <img src="assets/design-decisions-light.svg" alt="Design decisions: NAT stays at the edge. The STC modem and the ISR 4331 handle NAT. OPNsense adds none of its own, so it filters and inspects traffic with the real internal addresses. Routing happens at the core. The core 3850 is the gateway for every VLAN and relays DHCP, leaving the firewall to guard traffic in and out of the network. One 20G uplink. Two 10G links in an LACP port-channel join the core and access switches. That doubles the bandwidth, and the uplink stays up if one cable fails. Split hypervisor networking. Proxmox is managed on VLAN 10, while its VMs use a separate trunk for VLANs 20 and 40, so host management never shares a link with VM traffic. Two APs, two networks. An access point on each floor broadcasts the Internal and Guest SSIDs, each mapped to its own VLAN. 802.11r lets devices roam between floors without dropping. Two DHCP servers, one relay. The core relays every DHCP request. Internal clients get addresses from the domain controller, while guests and cameras get theirs from OPNsense, so neither ever talks to a server. Guests, cameras and storage fenced off. Access lists on the core keep them away from the trusted networks. Guests only reach the internet, cameras have no internet, and only Proxmox, the servers and the admin workstation reach the NAS. Automation. Ansible manages device configuration, so every change is repeatable, reviewable and tracked." width="100%">
 </picture>
 
 <br>
@@ -132,12 +132,12 @@ The 22U rack, front view, from top to bottom. The colored edge on each device ma
 
 ## <a name="network"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-network-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-network-light.svg"><img src="assets/h-network-light.svg" height="32" align="top" alt=""></picture>Network
 
-Five VLANs split the network by role, plus a native VLAN that carries no hosts. Each card shows the subnet, the gateway and how devices on it get their addresses.
+Six VLANs split the network by role. Each card shows the subnet, the gateway and how devices on it get their addresses.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/vlans-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/vlans-light.svg">
-  <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the access points, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP from OPNsense relayed by the core, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines and the UNAS Pro. 50 Cameras: 172.16.0.0/27, gateway 172.16.0.30, DHCP from OPNsense relayed by the core, for four PoE cameras and the NVR. Native VLAN 999: no subnet and no hosts, native on every trunk except the access point ports." width="100%">
+  <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the access points, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP from OPNsense relayed by the core, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines. 50 Cameras: 172.16.0.0/27, gateway 172.16.0.30, DHCP from OPNsense relayed by the core, for four PoE cameras and the NVR. 60 Storage: 10.60.0.0/29, gateway 10.60.0.6, static, for the UniFi UNAS Pro, reached only through the core." width="100%">
 </picture>
 
 <br>
@@ -149,7 +149,7 @@ How traffic gets from the internet to the access switch. Each card is a device a
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/backbone-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/backbone-light.svg">
-  <img src="assets/backbone-light.svg" alt="Backbone links, top to bottom. STC modem LAN port to SWAGGER-4331-ISR01 Gi0/0/1 over DHCP, 1 GbE. ISR Gi0/0/0 192.168.50.1 to OPNsense firewall WAN 192.168.50.2 on 192.168.50.0/30, 1 GbE. OPNsense LAN 192.168.50.5 to SWAGGER-CORE-SW01 Gi1/0/1 192.168.50.6 on 192.168.50.4/30, a point-to-point routed link, 1 GbE. Core Te1/0/1-2 to SWAGGER-ACCESS-SW01 Te1/0/1-2 as port-channel 1, a 2 x 10G LACP trunk carrying all VLANs." width="100%">
+  <img src="assets/backbone-light.svg" alt="Backbone links, top to bottom. STC modem LAN port to SWAGGER-4331-ISR01 Gi0/0/1 over DHCP, 1 GbE. ISR Gi0/0/0 192.168.50.1 to OPNsense firewall WAN 192.168.50.2 on 192.168.50.0/30, 1 GbE. OPNsense LAN 192.168.50.5 to SWAGGER-CORE-SW01 Gi1/0/1 192.168.50.6 on 192.168.50.4/30, a point-to-point routed link, 1 GbE. Core Te1/1/3-4 to SWAGGER-ACCESS-SW01 Te1/1/3-4 as port-channel 1, a 2 x 10G LACP trunk carrying all VLANs." width="100%">
 </picture>
 
 <br>
@@ -161,7 +161,7 @@ Every device plugs into the access switch, always on the top row (odd ports). Ac
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/switch-ports-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/switch-ports-light.svg">
-  <img src="assets/switch-ports-light.svg" alt="Access switch ports, all on the top row (odd numbers): Gi1/0/1 access VLAN 10 admin workstation; Gi1/0/3 trunk 20 and 30 UniFi AP-1, ground floor, native VLAN 10; Gi1/0/5 trunk 20 and 30 UniFi AP-2, first floor, native VLAN 10; Gi1/0/7 access VLAN 20 internal workstation; Gi1/0/9, 11, 13 and 15 access VLAN 50 PoE cameras; Gi1/0/17 access VLAN 50 NVR; Gi1/0/19 access VLAN 10 R720 NIC1 Proxmox management; Gi1/0/21 trunk 20 and 40 R720 NIC2 VM traffic; Gi1/0/23 access VLAN 40 UniFi UNAS Pro; even ports and ports 25 to 48 shut down; Te1/0/1-2 LACP trunk to the core switch." width="100%">
+  <img src="assets/switch-ports-light.svg" alt="Access switch ports, all on the top row (odd numbers): Gi1/0/1 access VLAN 10 admin workstation; Gi1/0/3 trunk 10, 20 and 30 UniFi AP-1, ground floor; Gi1/0/5 trunk 10, 20 and 30 UniFi AP-2, first floor; Gi1/0/7 access VLAN 20 internal workstation; Gi1/0/9, 11, 13 and 15 access VLAN 50 PoE cameras; Gi1/0/17 access VLAN 50 NVR; Gi1/0/19 access VLAN 10 R720 NIC1 Proxmox management; Gi1/0/21 trunk 20 and 40 R720 NIC2 VM traffic; Gi1/0/23 access VLAN 60 UniFi UNAS Pro storage; even ports and ports 25 to 48 shut down; Te1/1/3-4 LACP trunk to the core switch." width="100%">
 </picture>
 
 How it's cabled: every device uses an odd port on the switch's top row, so each cord drops straight down to the patch panel port below it (panel 1 to Gi1/0/1, panel 2 to Gi1/0/3, and so on). Every cord has a flag label with its panel port and device, cord colors follow the VLANs, and trunk cords are striped with the VLANs they carry.
@@ -169,11 +169,11 @@ How it's cabled: every device uses an odd port on the switch's top row, so each 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/cabling-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/cabling-light.svg">
-  <img src="assets/cabling-light.svg" alt="Cabling, front view of U11 and U12. Every device uses an odd port on the top row of the access switch SWAGGER-ACCESS-SW01, and each cord drops straight down to the patch panel port below it: panel port N connects to switch port 2N minus 1. Every cord carries a flag label with its panel port and device. Panel 1 to Gi1/0/1, admin PC, VLAN 10. Panel 2 to Gi1/0/3, AP-1, trunk for VLANs 20 and 30. Panel 3 to Gi1/0/5, AP-2, trunk for VLANs 20 and 30. Panel 4 to Gi1/0/7, internal PC, VLAN 20. Panels 5 to 8 to Gi1/0/9, 11, 13 and 15, four PoE cameras, VLAN 50. Panel 9 to Gi1/0/17, NVR, VLAN 50. Panel 10 to Gi1/0/19, R720 NIC1, VLAN 10. Panel 11 to Gi1/0/21, R720 NIC2, trunk for VLANs 20 and 40. Panel 12 to Gi1/0/23, UNAS Pro, VLAN 40. Even ports and ports 25 to 48 are shut down. Te1/0/1-2 uplink to the core as Po1. Panel ports 1 to 8 are wall runs, 9 to 12 come from devices in the rack, and 13 to 24 are spare. Cord colors follow the VLANs; trunk cords are striped." width="100%">
+  <img src="assets/cabling-light.svg" alt="Cabling, front view of U11 and U12. Every device uses an odd port on the top row of the access switch SWAGGER-ACCESS-SW01, and each cord drops straight down to the patch panel port below it: panel port N connects to switch port 2N minus 1. Every cord carries a flag label with its panel port and device. Panel 1 to Gi1/0/1, admin PC, VLAN 10. Panel 2 to Gi1/0/3, AP-1, trunk for VLANs 10, 20 and 30. Panel 3 to Gi1/0/5, AP-2, trunk for VLANs 10, 20 and 30. Panel 4 to Gi1/0/7, internal PC, VLAN 20. Panels 5 to 8 to Gi1/0/9, 11, 13 and 15, four PoE cameras, VLAN 50. Panel 9 to Gi1/0/17, NVR, VLAN 50. Panel 10 to Gi1/0/19, R720 NIC1, VLAN 10. Panel 11 to Gi1/0/21, R720 NIC2, trunk for VLANs 20 and 40. Panel 12 to Gi1/0/23, UNAS Pro, VLAN 60. Even ports and ports 25 to 48 are shut down. Te1/1/3-4 uplink to the core as Po1. Panel ports 1 to 8 are wall runs, 9 to 12 come from devices in the rack, and 13 to 24 are spare. Cord colors follow the VLANs; trunk cords are striped." width="100%">
 </picture>
 
 > [!NOTE]
-> **Good to know:** every gateway is the last usable address in its subnet (`.254`, or `172.16.0.30` for the cameras). The core switch is the gateway for every VLAN and relays all DHCP: Internal clients get addresses from SWAGGER-DC-01, while Guest and Cameras get theirs from OPNsense. Management and Servers use static addresses. The camera VLAN uses its own private range, `172.16.0.0/27`, so it stays visibly separate from the `192.168` networks. Trunks carry only the VLANs they need: VLANs 20 and 40 to Proxmox, and VLANs 20 and 30 to each access point. The access points take their own management address untagged, on native VLAN 10.
+> **Good to know:** every gateway is the last usable address in its subnet (`.254`, `172.16.0.30` for the cameras, or `10.60.0.6` for storage). The core switch is the gateway for every VLAN and relays all DHCP: Internal clients get addresses from SWAGGER-DC-01, while Guest and Cameras get theirs from OPNsense. Management, Servers and Storage use static addresses. The cameras and the NAS use their own private ranges, `172.16.0.0/27` and `10.60.0.0/29`, so they stay visibly separate from the `192.168` networks. Trunks carry only the VLANs they need: VLANs 20 and 40 to Proxmox, and VLANs 10, 20 and 30 to each access point, which is managed on VLAN 10.
 
 <br>
 
@@ -226,7 +226,7 @@ How the lab is protected, layer by layer. The zones run from least trusted on th
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/trust-zones-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/trust-zones-light.svg">
-  <img src="assets/trust-zones-light.svg" alt="Trust zones, least to most trusted. Zone 1 Untrusted: the internet via STC. Zone 2 Perimeter: the ISR 4331 doing NAT, then the OPNsense firewall with Suricata IDS on a CloudGenix ION 3000. Zone 3 Trusted LAN: core and access switches with VLAN 10 Management, VLAN 20 Internal and VLAN 40 Servers routed at the core, VLAN 50 Cameras isolated from the servers, and VLAN 30 Guest limited to the internet. Zone 4 Management: SSH access limited by the Admin-SSH access list to the admin workstation at 192.168.10.1." width="100%">
+  <img src="assets/trust-zones-light.svg" alt="Trust zones, least to most trusted. Zone 1 Untrusted: the internet via STC. Zone 2 Perimeter: the ISR 4331 doing NAT, then the OPNsense firewall with Suricata IDS on a CloudGenix ION 3000. Zone 3 Trusted LAN: core and access switches with VLAN 10 Management, VLAN 20 Internal and VLAN 40 Servers routed at the core, VLAN 50 Cameras isolated with no internet, VLAN 60 Storage reachable only by the servers and the admin workstation, and VLAN 30 Guest limited to the internet. Zone 4 Management: SSH access limited by the Admin-SSH access list to the admin workstation at 192.168.10.1." width="100%">
 </picture>
 
 Zone 4 isn't a separate cable path. It's a privilege boundary enforced by an access list on every network device.
@@ -234,7 +234,7 @@ Zone 4 isn't a separate cable path. It's a privilege boundary enforced by an acc
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/security-controls-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/security-controls-light.svg">
-  <img src="assets/security-controls-light.svg" alt="Security controls in place: Perimeter, Firewall and IDS: OPNsense filters traffic between the edge and the core; Suricata inspects it.; Perimeter, No inbound exposure: No port forwards, no VPN and no public services.; Network, Segmentation: Each role gets its own VLAN; the native VLAN carries no hosts.; Network, Guest isolation: Guest Wi-Fi reaches the internet only; its DHCP comes from OPNsense.; Network, Camera isolation: Cameras can&#x27;t reach the trusted VLANs; the admin workstation can reach in.; Access, Admin-only SSH: Network devices accept SSH only from the admin workstation.; Identity, Active Directory: Two domain controllers, a certificate authority and NPS for RADIUS.; Endpoints, Patching: WSUS manages Windows updates across the domain.; Monitoring, Logs and alerts: Wazuh and Splunk Free collect and search logs; LibreNMS watches every device.; Data, Backups: Servers and files back up to the UNAS Pro, off the R720&#x27;s own drives.; Physical, Surveillance: Four PoE cameras on their own VLAN, recording to the NVR.; Publishing, Sanitized configs: Configs are cleaned before they&#x27;re committed; no passwords or secrets here." width="100%">
+  <img src="assets/security-controls-light.svg" alt="Security controls in place: Perimeter, Firewall and IDS: OPNsense filters traffic between the edge and the core; Suricata inspects it.; Perimeter, No inbound exposure: No port forwards, no VPN and no public services.; Network, Segmentation: Each role gets its own VLAN, including a storage VLAN for the NAS.; Network, Guest isolation: Guests reach the internet only; DHCP and DNS come from OPNsense.; Network, Camera isolation: No internet and no other VLANs; only the admin workstation can reach in.; Network, Storage access: Only Proxmox, the servers and the admin workstation can reach the NAS.; Access, Admin-only SSH: Network devices accept SSH only from the admin workstation.; Identity, Active Directory: Two domain controllers, a certificate authority and NPS for RADIUS.; Endpoints, Patching: WSUS manages Windows updates across the domain.; Monitoring, Logs and alerts: Wazuh and Splunk Free collect and search logs; LibreNMS watches every device.; Data, Backups: Servers and files back up to the UNAS Pro, off the R720&#x27;s own drives.; Physical, Surveillance: Four PoE cameras on their own VLAN, recording to the NVR.; Publishing, Sanitized configs: Configs are cleaned before they&#x27;re committed; no passwords or secrets here." width="100%">
 </picture>
 
 <br>
