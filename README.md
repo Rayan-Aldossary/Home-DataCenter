@@ -221,15 +221,13 @@ The lab runs under my own domain, `rayanaldossary.com`. Its public DNS and email
 
 ## <a name="security-design"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-security-light.svg"><img src="assets/h-security-light.svg" height="32" align="top" alt=""></picture>Security design
 
-How the lab is protected, layer by layer. The zones run from least trusted on the left to most trusted on the right.
+How the lab is protected. The top row shows the four trust levels, from least to most trusted. The cards below show what each network can and can't reach, and the rule that enforces it.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/trust-zones-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/trust-zones-light.svg">
-  <img src="assets/trust-zones-light.svg" alt="Trust zones, least to most trusted. Zone 1 Untrusted: the internet via STC. Zone 2 Perimeter: the ISR 4331 doing NAT, then the OPNsense firewall with Suricata IDS on a CloudGenix ION 3000. Zone 3 Trusted LAN: core and access switches with VLAN 10 Management, VLAN 20 Internal and VLAN 40 Servers routed at the core, VLAN 50 Cameras isolated with no internet, VLAN 60 Storage reachable only by the servers and the admin workstation, and VLAN 30 Guest limited to the internet. Zone 4 Management: SSH access limited by the Admin-SSH access list to the admin workstation at 192.168.10.1." width="100%">
+  <img src="assets/trust-zones-light.svg" alt="Security design. Trust levels, least to most trusted. Level 1, Internet: Nothing outside can start a connection into the lab. Level 2, Edge and firewall: The router and firewall filter and inspect traffic. Level 3, Inside network: Six networks, kept apart by rules on the core switch. Level 4, Management: Only the admin PC can log in to the switches and router. Who can reach what. Management, VLAN 10 (Admin PC, switches, access points, Proxmox host): can reach Internet, Internal, Servers, Storage · admin PC, Proxmox, Cameras · admin PC; blocked from Guests; rule: Admin-SSH: only the admin PC can log in to devices. Servers, VLAN 40 (Domain controllers, file server, monitoring): can reach Internet, Internal, Storage; blocked from Cameras, Guests, Switch logins; rule: None: trusted, routed freely by the core. Internal, VLAN 20 (Family PCs and phones, Internal Wi-Fi): can reach Internet, Servers; blocked from Storage, Cameras, Guests, Switch logins; rule: None: kept out by the NAS, camera and guest rules. Storage, VLAN 60 (UniFi UNAS Pro): can reach Servers, Proxmox, Admin PC, Internet · updates; blocked from Internal, Cameras, Guests; rule: NAS access list on the core switch. Cameras, VLAN 50 (Four PoE cameras and the NVR): can reach Admin PC only; blocked from Internet, Internal, Servers, Storage, Guests; rule: IP-Cameras access list on the core switch. Guests, VLAN 30 (Visitor Wi-Fi): can reach Internet; blocked from Internal, Servers, Storage, Cameras, Management; rule: Guest-Internet access list on the core switch." width="100%">
 </picture>
-
-Zone 4 isn't a separate cable path. It's a privilege boundary enforced by an access list on every network device.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/security-controls-dark.svg">
