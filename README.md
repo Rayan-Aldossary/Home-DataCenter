@@ -90,7 +90,13 @@ How everything connects, from the internet link down to each VLAN.
 
 A guided tour of the topology, from the edge router down to every VLAN and virtual machine.
 
-https://github.com/user-attachments/assets/00f0f240-d347-4e98-bb69-2ba5701e0d6b
+
+
+https://github.com/user-attachments/assets/3e60c7a8-b229-4680-bcf1-c92fab5eee84
+
+
+
+
 
 <br>
 
