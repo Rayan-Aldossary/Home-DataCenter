@@ -92,11 +92,7 @@ How everything connects, from the internet link down to each VLAN.
 
 A guided tour of the topology, from the edge router down to every VLAN and virtual machine.
 
-
-
 https://github.com/user-attachments/assets/ff90aa69-6e55-43d7-b900-1b8b86f40dcc
-
-
 
 <br>
 
@@ -238,7 +234,7 @@ How the network is protected: four layers of defense from the outside in, then a
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/security-controls-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/security-controls-light.svg">
-  <img src="assets/security-controls-light.svg" alt="Security controls in place: Perimeter, Firewall and IDS: OPNsense filters traffic between the edge and the core; Suricata inspects it.; Perimeter, No inbound exposure: No port forwards, no VPN and no public services.; Network, Segmentation: Each role gets its own VLAN, including a storage VLAN for the NAS.; Network, Guest isolation: Guests reach the internet only; DHCP and DNS come from OPNsense.; Network, Camera isolation: No internet and no other VLANs; only the admin workstation can reach in.; Network, Storage access: Only Proxmox, the servers and the admin workstation can reach the NAS.; Access, Admin-only SSH: Network devices accept SSH only from the admin workstation.; Identity, Active Directory: Two domain controllers, a certificate authority and NPS for RADIUS.; Endpoints, Patching: WSUS manages Windows updates across the domain.; Monitoring, Logs and alerts: Wazuh and Splunk Free collect and search logs; LibreNMS watches every device.; Data, Backups: Servers and files back up to the UNAS Pro, off the R720&#x27;s own drives.; Physical, Surveillance: Four PoE cameras on their own VLAN, recording to the NVR.; Publishing, Sanitized configs: Configs are cleaned before they&#x27;re committed; no passwords or secrets here." width="100%">
+  <img src="assets/security-controls-light.svg" alt="Security controls, Perimeter: Firewall and IDS, Checks every connection in and out (OPNsense · Suricata); No open doors, Nothing on the internet can connect in (No port forwards · no VPN). Network: Separate VLANs, Six networks, one per role (VLAN 10 to 60); Guest Wi-Fi, Internet only, no other devices (Guest-Internet ACL); Cameras, No internet, no other devices (IP-Cameras ACL); Storage, Servers and admin PC only (NAS ACL). Access: Admin-only logins, Only the admin PC can change devices (Admin-SSH ACL); Central accounts, One sign-in system for every user (Active Directory · CA · NPS). Operations: Updates, Windows patched from one server (WSUS); Monitoring, Logs, alerts and device health (Wazuh · Splunk · NMS); Backups, Copies kept on separate storage (UniFi UNAS Pro); Safe to share, No passwords or keys published here (Sanitized configs). Physical: Surveillance, Four PoE cameras record to the NVR in the rack (PoE cameras · NVR)." width="100%">
 </picture>
 
 <br>
