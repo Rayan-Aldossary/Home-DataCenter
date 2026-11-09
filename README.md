@@ -139,7 +139,7 @@ Six VLANs split the network by role. Each card shows the subnet, the gateway and
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/vlans-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/vlans-light.svg">
-  <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the access points, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC-01 relayed by the core, for trusted users, Internal Wi-Fi and WKS-01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP from OPNsense relayed by the core, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines. 50 Cameras: 172.16.0.0/27, gateway 172.16.0.30, DHCP from OPNsense relayed by the core, for four PoE cameras and the NVR. 60 Storage: 10.60.0.0/29, gateway 10.60.0.6, static, for the UniFi UNAS Pro, reached only through the core." width="100%">
+  <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the access points, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC01 relayed by the core, for trusted users, Internal Wi-Fi and WKS01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP from OPNsense relayed by the core, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines. 50 Cameras: 172.16.0.0/27, gateway 172.16.0.30, DHCP from OPNsense relayed by the core, for four PoE cameras and the NVR. 60 Storage: 10.60.0.0/29, gateway 10.60.0.6, static, for the UniFi UNAS Pro, reached only through the core." width="100%">
 </picture>
 
 <br>
@@ -175,7 +175,7 @@ How it's cabled: every device uses an odd port on the switch's top row, so each 
 </picture>
 
 > [!NOTE]
-> **Good to know:** every gateway is the last usable address in its subnet (`.254`, `172.16.0.30` for the cameras, or `10.60.0.6` for storage). The core switch is the gateway for every VLAN and relays all DHCP: Internal clients get addresses from SWAGGER-DC-01, while Guest and Cameras get theirs from OPNsense. Management, Servers and Storage use static addresses. The cameras and the NAS use their own private ranges, `172.16.0.0/27` and `10.60.0.0/29`, so they stay visibly separate from the `192.168` networks. Trunks carry only the VLANs they need: VLANs 20 and 40 to Proxmox, and VLANs 10, 20 and 30 to each access point, which is managed on VLAN 10.
+> **Good to know:** every gateway is the last usable address in its subnet (`.254`, `172.16.0.30` for the cameras, or `10.60.0.6` for storage). The core switch is the gateway for every VLAN and relays all DHCP: Internal clients get addresses from SWAGGER-DC01, while Guest and Cameras get theirs from OPNsense. Management, Servers and Storage use static addresses. The cameras and the NAS use their own private ranges, `172.16.0.0/27` and `10.60.0.0/29`, so they stay visibly separate from the `192.168` networks. Trunks carry only the VLANs they need: VLANs 20 and 40 to Proxmox, and VLANs 10, 20 and 30 to each access point, which is managed on VLAN 10.
 
 <br>
 
@@ -186,22 +186,22 @@ Six virtual machines run on Proxmox: four Windows Server 2022 servers, a Windows
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/servers-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/servers-light.svg">
-  <img src="assets/servers-light.svg" alt="Proxmox host pve.swagger.rayanaldossary.com on a Dell PowerEdge R720: vmbr0 management 192.168.10.3, vmbr1 VM trunk for VLANs 20 and 40, 384 GB of memory. Virtual machines: SWAGGER-DC-01, Primary domain controller, AD DS, DNS, DHCP, NTP, Windows Server 2022, 192.168.40.1; SWAGGER-DC-02, Second domain controller, AD DS, DNS, Windows Server 2022, 192.168.40.2; SWAGGER-FS-01, File server and patching, File shares, WSUS, Windows Server 2022, 192.168.40.3; SWAGGER-CA-01, PKI and network policy, AD CS, NPS (RADIUS), Windows Server 2022, 192.168.40.4; SWAGGER-NMS-01, Docker host, monitoring and SIEM, Docker, Portainer, LibreNMS, Wazuh, Splunk, Linux, 192.168.40.5; SWAGGER-WKS-01, Domain-joined test client, Logons, Group Policy, Windows 11, DHCP." width="100%">
+  <img src="assets/servers-light.svg" alt="Proxmox host pve.swagger.rayanaldossary.com on a Dell PowerEdge R720: vmbr0 management 192.168.10.3, vmbr1 VM trunk for VLANs 20 and 40, 384 GB of memory. Virtual machines: SWAGGER-DC01, Primary domain controller, AD DS, DNS, DHCP, NTP, Windows Server 2022, 192.168.40.1; SWAGGER-DC02, Second domain controller, AD DS, DNS, Windows Server 2022, 192.168.40.2; SWAGGER-FS01, File server and patching, File shares, WSUS, Windows Server 2022, 192.168.40.3; SWAGGER-CA01, PKI and network policy, AD CS, NPS (RADIUS), Windows Server 2022, 192.168.40.4; SWAGGER-NMS01, Docker host, monitoring and SIEM, Docker, Portainer, LibreNMS, Wazuh, Splunk, Linux, 192.168.40.5; SWAGGER-WKS01, Domain-joined test client, Logons, Group Policy, Windows 11, DHCP." width="100%">
 </picture>
 
 > [!NOTE]
-> **SWAGGER-WKS-01 is a VM, not a physical PC.** It runs on the same Proxmox host as the servers, but its network card sits on the VLAN 20 side of the trunk, so it behaves like any other Internal client and gets its address by DHCP from SWAGGER-DC-01.
+> **SWAGGER-WKS01 is a VM, not a physical PC.** It runs on the same Proxmox host as the servers, but its network card sits on the VLAN 20 side of the trunk, so it behaves like any other Internal client and gets its address by DHCP from SWAGGER-DC01.
 
 <br>
 
-## <a name="containers-on-swagger-nms-01"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-containers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-containers-light.svg"><img src="assets/h-containers-light.svg" height="32" align="top" alt=""></picture>Containers on SWAGGER-NMS-01
+## <a name="containers-on-swagger-nms01"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-containers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-containers-light.svg"><img src="assets/h-containers-light.svg" height="32" align="top" alt=""></picture>Containers on SWAGGER-NMS01
 
-The monitoring and security tools run as Docker containers on SWAGGER-NMS-01.
+The monitoring and security tools run as Docker containers on SWAGGER-NMS01.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/containers-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/containers-light.svg">
-  <img src="assets/containers-light.svg" alt="Docker host SWAGGER-NMS-01 at 192.168.40.5 on a macvlan network, each tool with its own VLAN 40 address. Containers: Wazuh: SIEM: collects logs and agent data, detects threats and checks file integrity.; Splunk Free: Searches, dashboards and reports over the same logs.; LibreNMS: Watches every switch, router and the firewall over SNMP: health, traffic and uptime.; Portainer: Web interface for managing every container on the host." width="100%">
+  <img src="assets/containers-light.svg" alt="Docker host SWAGGER-NMS01 at 192.168.40.5 on a macvlan network, each tool with its own VLAN 40 address. Containers: Wazuh: SIEM: collects logs and agent data, detects threats and checks file integrity.; Splunk Free: Searches, dashboards and reports over the same logs.; LibreNMS: Watches every switch, router and the firewall over SNMP: health, traffic and uptime.; Portainer: Web interface for managing every container on the host." width="100%">
 </picture>
 
 <br>
@@ -213,7 +213,7 @@ The lab runs under my own domain, `rayanaldossary.com`. Its public DNS and email
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/domain-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/domain-light.svg">
-  <img src="assets/domain-light.svg" alt="Domain and email. Public domain rayanaldossary.com: registrar Cloudflare, DNS on Cloudflare, email on Google Workspace. Internal domain swagger.rayanaldossary.com, a subdomain of it: DNS served by Active Directory on DC-01 and DC-02, resolves only inside the lab, and every Windows machine is a member. Mail DNS records on Cloudflare: MX at @: smtp.google.com · priority 10, Routes mail to Google Workspace; TXT at @: v=spf1 include:_spf.google.com ~all, SPF: only Google may send as the domain; TXT at google._domainkey: v=DKIM1; k=rsa; p=… (Google key), DKIM: signs every outgoing message; TXT at _dmarc: v=DMARC1; p=none; rua=mailto:rayan@…, DMARC: monitors and reports spoofing; TXT at @: google-site-verification=…, Proves domain ownership to Google." width="100%">
+  <img src="assets/domain-light.svg" alt="Domain and email. Public domain rayanaldossary.com: registrar Cloudflare, DNS on Cloudflare, email on Google Workspace. Internal domain swagger.rayanaldossary.com, a subdomain of it: DNS served by Active Directory on DC01 and DC02, resolves only inside the lab, and every Windows machine is a member. Mail DNS records on Cloudflare: MX at @: smtp.google.com · priority 10, Routes mail to Google Workspace; TXT at @: v=spf1 include:_spf.google.com ~all, SPF: only Google may send as the domain; TXT at google._domainkey: v=DKIM1; k=rsa; p=… (Google key), DKIM: signs every outgoing message; TXT at _dmarc: v=DMARC1; p=none; rua=mailto:rayan@…, DMARC: monitors and reports spoofing; TXT at @: google-site-verification=…, Proves domain ownership to Google." width="100%">
 </picture>
 
 > [!NOTE]
@@ -241,12 +241,12 @@ How the network is protected: four layers of defense from the outside in, then a
 
 ## <a name="detection-pipeline"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-pipeline-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-pipeline-light.svg"><img src="assets/h-pipeline-light.svg" height="32" align="top" alt=""></picture>Detection pipeline
 
-The lab's devices send their logs to Wazuh, which runs in Docker on SWAGGER-NMS-01. The animation follows one attack from start to finish: a brute-force login attempt on SWAGGER-DC-01 raises a level 10 alert, Wazuh blocks the source, and the alert is forwarded to Splunk.
+The lab's devices send their logs to Wazuh, which runs in Docker on SWAGGER-NMS01. The animation follows one attack from start to finish: a brute-force login attempt on SWAGGER-DC01 raises a level 10 alert, Wazuh blocks the source, and the alert is forwarded to Splunk.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/pipeline-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/pipeline-light.svg">
-  <img src="assets/pipeline-light.svg" alt="Detection pipeline. Five log sources feed Wazuh: the Cisco network (ISR 4331 and Catalyst 3850s), OPNsense with Suricata (firewall logs and IDS alerts), the Windows domain (SWAGGER-DC-01, DC-02, FS-01 and CA-01), Proxmox and Docker, and UniFi. Wazuh, running in Docker on SWAGGER-NMS-01, decodes the logs, correlates them against its rules and responds, then forwards events to Splunk for search and dashboards. In the animation, a brute force attempt on SWAGGER-DC-01 raises a level 10 alert, active response blocks the source, and the alert is forwarded to Splunk." width="100%">
+  <img src="assets/pipeline-light.svg" alt="Detection pipeline. Five log sources feed Wazuh: the Cisco network (ISR 4331 and Catalyst 3850s), OPNsense with Suricata (firewall logs and IDS alerts), the Windows domain (SWAGGER-DC01, DC02, FS01 and CA01), Proxmox and Docker, and UniFi. Wazuh, running in Docker on SWAGGER-NMS01, decodes the logs, correlates them against its rules and responds, then forwards events to Splunk for search and dashboards. In the animation, a brute force attempt on SWAGGER-DC01 raises a level 10 alert, active response blocks the source, and the alert is forwarded to Splunk." width="100%">
 </picture>
 
 <br>
