@@ -26,11 +26,13 @@
 <br>
 <br>
 
+<a name="menu"></a>
+
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/label-jump-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/label-jump-light.svg">
-  <img src="assets/label-jump-light.svg" alt="Jump to a section" width="720">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/label-build-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/label-build-light.svg">
+  <img src="assets/label-build-light.svg" alt="The build" width="720">
 </picture>
 </p>
 
@@ -38,15 +40,33 @@
 <a href="#overview"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-overview-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-overview-light.svg"><img src="assets/nav-overview-light.svg" alt="Overview" height="30" vspace="6"></picture></a>&nbsp;
 <a href="#topology"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-topology-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-topology-light.svg"><img src="assets/nav-topology-light.svg" alt="Topology" height="30" vspace="6"></picture></a>&nbsp;
 <a href="#walkthrough"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-walkthrough-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-walkthrough-light.svg"><img src="assets/nav-walkthrough-light.svg" alt="Walkthrough" height="30" vspace="6"></picture></a>&nbsp;
-<a href="#design-decisions"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-design-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-design-light.svg"><img src="assets/nav-design-light.svg" alt="Design" height="30" vspace="6"></picture></a>&nbsp;
+<a href="#design-decisions"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-design-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-design-light.svg"><img src="assets/nav-design-light.svg" alt="Decisions" height="30" vspace="6"></picture></a>&nbsp;
 <a href="#hardware"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-hardware-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-hardware-light.svg"><img src="assets/nav-hardware-light.svg" alt="Hardware" height="30" vspace="6"></picture></a>&nbsp;
 <br>
 <a href="#rack-elevation"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-rack-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-rack-light.svg"><img src="assets/nav-rack-light.svg" alt="Rack" height="30" vspace="6"></picture></a>&nbsp;
 <a href="#network"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-network-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-network-light.svg"><img src="assets/nav-network-light.svg" alt="Network" height="30" vspace="6"></picture></a>&nbsp;
 <a href="#servers"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-servers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-servers-light.svg"><img src="assets/nav-servers-light.svg" alt="Servers" height="30" vspace="6"></picture></a>&nbsp;
 <a href="#domain-and-email"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-domain-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-domain-light.svg"><img src="assets/nav-domain-light.svg" alt="Domain" height="30" vspace="6"></picture></a>&nbsp;
-<a href="#security-design"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-security-light.svg"><img src="assets/nav-security-light.svg" alt="Security" height="30" vspace="6"></picture></a>&nbsp;
 </p>
+
+<br>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/label-security-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/label-security-light.svg">
+  <img src="assets/label-security-light.svg" alt="Security" width="720">
+</picture>
+</p>
+
+<p align="center">
+<a href="#security-at-a-glance"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-glance-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-glance-light.svg"><img src="assets/nav-glance-light.svg" alt="At a glance" height="30" vspace="6"></picture></a>&nbsp;
+<a href="#firewall"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-firewall-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-firewall-light.svg"><img src="assets/nav-firewall-light.svg" alt="Firewall" height="30" vspace="6"></picture></a>&nbsp;
+<a href="#security-design"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-security-light.svg"><img src="assets/nav-security-light.svg" alt="Security design" height="30" vspace="6"></picture></a>&nbsp;
+<a href="#security-controls"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-controls-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-controls-light.svg"><img src="assets/nav-controls-light.svg" alt="Security controls" height="30" vspace="6"></picture></a>&nbsp;
+<a href="#detection-pipeline"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-detection-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-detection-light.svg"><img src="assets/nav-detection-light.svg" alt="Detection pipeline" height="30" vspace="6"></picture></a>&nbsp;
+</p>
+
 
 <br>
 
@@ -61,7 +81,11 @@ A home data center I designed, built and secured myself, to run and protect my o
 </picture>
 
 > [!TIP]
-> **New here?** Start with the **Topology** diagram and the **Walkthrough** video for the big picture. **Design decisions** explains why it's built this way. The sections after it hold the details: hardware, network, servers, domain and security.
+> **New here?** Start with the **Topology** diagram and the **Walkthrough** video for the big picture. **Design decisions** explains why it's built this way. The sections after it hold the details: hardware, network, servers and domain.
+>
+> **Here for security?** Go straight to [Security at a glance](#security-at-a-glance).
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -71,7 +95,7 @@ The lab at a glance.
 
 <img src="assets/lab-stats.svg" alt="22U rack, 6 virtual machines, 6 VLANs, 20G LACP uplink, 384 GB hypervisor RAM, 7 NAS drive bays" width="100%">
 
-<br>
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -86,6 +110,8 @@ How everything connects, from the internet link down to each VLAN.
 > [!NOTE]
 > **Reading the diagram:** traffic from the internet comes in through the STC modem and the ISR 4331, passes through OPNsense to be filtered and inspected, then reaches the core switch, which routes it to the right VLAN. The access switch connects every device, and each colored zone is one VLAN.
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="walkthrough"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-walkthrough-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-walkthrough-light.svg"><img src="assets/h-walkthrough-light.svg" height="32" align="top" alt=""></picture>Walkthrough
@@ -93,6 +119,8 @@ How everything connects, from the internet link down to each VLAN.
 A guided tour of the topology, from the edge router down to every VLAN and virtual machine.
 
 https://github.com/user-attachments/assets/ff90aa69-6e55-43d7-b900-1b8b86f40dcc
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -106,6 +134,8 @@ Why the network is built the way it is.
   <img src="assets/design-decisions-light.svg" alt="Design decisions: NAT stays at the edge. The STC modem and the ISR 4331 handle NAT. OPNsense adds none of its own, so it filters and inspects traffic with the real internal addresses. Routing happens at the core. The core 3850 is the gateway for every VLAN and relays DHCP, leaving the firewall to guard traffic in and out of the network. One 20G uplink. Two 10G links in an LACP port-channel join the core and access switches. That doubles the bandwidth, and the uplink stays up if one cable fails. Split hypervisor networking. Proxmox is managed on VLAN 10, while its VMs use a separate trunk for VLANs 20 and 40, so host management never shares a link with VM traffic. Two APs, two networks. An access point on each floor broadcasts the Internal and Guest SSIDs, each mapped to its own VLAN. 802.11r lets devices roam between floors without dropping. Two DHCP servers, one relay. The core relays every DHCP request. Internal clients get addresses from the domain controller, while guests and cameras get theirs from OPNsense, so neither ever talks to a server. Guests, cameras and storage fenced off. Access lists on the core keep them away from the trusted networks. Guests only reach the internet, cameras have no internet, and only Proxmox, the servers and the admin workstation reach the NAS. Automation. Ansible manages device configuration, so every change is repeatable, reviewable and tracked." width="100%">
 </picture>
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="hardware"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-hardware-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-hardware-light.svg"><img src="assets/h-hardware-light.svg" height="32" align="top" alt=""></picture>Hardware
@@ -117,6 +147,8 @@ What's in the rack and what each device does. The chip in each corner is the dev
   <source media="(prefers-color-scheme: light)" srcset="assets/hardware-light.svg">
   <img src="assets/hardware-light.svg" alt="Hardware: Edge: Cisco ISR 4331. Internet link and NAT. Hands traffic to the firewall over a /30 transit link. Firewall: CloudGenix ION 3000. Runs OPNsense: stateful filtering, Suricata IDS, and DHCP for the Guest and camera VLANs. Core: Catalyst 3850-48. Layer 3 switch that routes between VLANs and relays DHCP requests. Access: Catalyst 3850-48. Layer 2 switch for every device, with a 2 × 10G uplink to the core. Compute: Dell PowerEdge R720. Proxmox VE host with dual CPUs and 384 GB of RAM, running six VMs. Storage: UniFi UNAS Pro. Seven-bay storage for backups and file shares. Wireless: Two UniFi access points. One per floor, each with Internal and Guest Wi-Fi and fast roaming. Surveillance: PoE cameras and NVR. Four cameras on their own VLAN, recording to the NVR in the rack. Power: UniFi UPS and rack PDU. Battery backup and power distribution for the whole rack." width="100%">
 </picture>
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -130,6 +162,8 @@ The 22U rack, front view, from top to bottom. The colored edge on each device ma
   <img src="assets/rack-light.svg" alt="Rack elevation, 22U, top to bottom: U19 to 22 reserved, U18 vented panel, U17 Cisco ISR 4331, U16 CloudGenix ION 3000 running OPNsense, U15 NVR for camera recording, U14 core Catalyst 3850, U13 blank panel, U12 access Catalyst 3850, U11 24-port patch panel, U9 to 10 UniFi UNAS Pro, U7 to 8 Dell PowerEdge R720, U6 PDU, U5 brush panel, U1 to 4 reserved." width="100%">
 </picture>
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="network"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-network-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-network-light.svg"><img src="assets/h-network-light.svg" height="32" align="top" alt=""></picture>Network
@@ -142,6 +176,8 @@ Six VLANs split the network by role. Each card shows the subnet, the gateway and
   <img src="assets/vlans-light.svg" alt="VLANs. 10 Management: 192.168.10.0/24, gateway .254, static, for switches, the access points, the Proxmox host and the admin workstation. 20 Internal: 192.168.20.0/24, gateway .254, DHCP from SWAGGER-DC01 relayed by the core, for trusted users, Internal Wi-Fi and WKS01. 30 Guest: 192.168.30.0/24, gateway .254, DHCP from OPNsense relayed by the core, visitor Wi-Fi with internet only. 40 Servers: 192.168.40.0/24, gateway .254, static, for virtual machines. 50 Cameras: 172.16.0.0/27, gateway 172.16.0.30, DHCP from OPNsense relayed by the core, for four PoE cameras and the NVR. 60 Storage: 10.60.0.0/29, gateway 10.60.0.6, static, for the UniFi UNAS Pro, reached only through the core." width="100%">
 </picture>
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="backbone-links"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-backbone-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-backbone-light.svg"><img src="assets/h-backbone-light.svg" height="32" align="top" alt=""></picture>Backbone links
@@ -153,6 +189,8 @@ How traffic gets from the internet to the access switch. Each card is a device a
   <source media="(prefers-color-scheme: light)" srcset="assets/backbone-light.svg">
   <img src="assets/backbone-light.svg" alt="Backbone links, top to bottom. STC modem LAN port to SWAGGER-4331-ISR01 Gi0/0/1 over DHCP, 1 GbE. ISR Gi0/0/0 192.168.50.1 to OPNsense firewall WAN 192.168.50.2 on 192.168.50.0/30, 1 GbE. OPNsense LAN 192.168.50.5 to SWAGGER-CORE-SW01 Gi1/0/1 192.168.50.6 on 192.168.50.4/30, a point-to-point routed link, 1 GbE. Core Te1/1/3-4 to SWAGGER-ACCESS-SW01 Te1/1/3-4 as port-channel 1, a 2 x 10G LACP trunk carrying all VLANs." width="100%">
 </picture>
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -177,6 +215,8 @@ How it's cabled: every device uses an odd port on the switch's top row, so each 
 > [!NOTE]
 > **Good to know:** every gateway is the last usable address in its subnet (`.254`, `172.16.0.30` for the cameras, or `10.60.0.6` for storage). The core switch is the gateway for every VLAN and relays all DHCP: Internal clients get addresses from SWAGGER-DC01, while Guest and Cameras get theirs from OPNsense. Management, Servers and Storage use static addresses. The cameras and the NAS use their own private ranges, `172.16.0.0/27` and `10.60.0.0/29`, so they stay visibly separate from the `192.168` networks. Trunks carry only the VLANs they need: VLANs 20 and 40 to Proxmox, and VLANs 10, 20 and 30 to each access point, which is managed on VLAN 10.
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="servers"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-servers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-servers-light.svg"><img src="assets/h-servers-light.svg" height="32" align="top" alt=""></picture>Servers
@@ -192,6 +232,8 @@ Six virtual machines run on Proxmox: four Windows Server 2022 servers, a Windows
 > [!NOTE]
 > **SWAGGER-WKS01 is a VM, not a physical PC.** It runs on the same Proxmox host as the servers, but its network card sits on the VLAN 20 side of the trunk, so it behaves like any other Internal client and gets its address by DHCP from SWAGGER-DC01.
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="containers-on-swagger-nms01"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-containers-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-containers-light.svg"><img src="assets/h-containers-light.svg" height="32" align="top" alt=""></picture>Containers on SWAGGER-NMS01
@@ -203,6 +245,8 @@ The monitoring and security tools run as Docker containers on SWAGGER-NMS01.
   <source media="(prefers-color-scheme: light)" srcset="assets/containers-light.svg">
   <img src="assets/containers-light.svg" alt="Docker host SWAGGER-NMS01 at 192.168.40.5 on a macvlan network, each tool with its own VLAN 40 address. Containers: Wazuh: SIEM: collects logs and agent data, detects threats and checks file integrity.; Splunk Free: Searches, dashboards and reports over the same logs.; LibreNMS: Watches every switch, router and the firewall over SNMP: health, traffic and uptime.; Portainer: Web interface for managing every container on the host." width="100%">
 </picture>
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -219,6 +263,41 @@ The lab runs under my own domain, `rayanaldossary.com`. Its public DNS and email
 > [!NOTE]
 > **Why a subdomain?** Microsoft recommends naming an Active Directory domain after a subdomain of a domain you own, instead of an invented suffix like `.local` or `.lab`. That way, internal names can never clash with anyone else's on the internet.
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
+<br>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/label-security-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/label-security-light.svg">
+  <img src="assets/label-security-light.svg" alt="Security" width="720">
+</picture>
+</p>
+
+## <a name="security-at-a-glance"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-glance-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-glance-light.svg"><img src="assets/h-glance-light.svg" height="32" align="top" alt=""></picture>Security at a glance
+
+How the lab is kept safe, in four parts. Select one to open its section.
+
+<a href="#firewall"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/glance-firewall-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/glance-firewall-light.svg"><img src="assets/glance-firewall-light.svg" alt="Firewall: OPNsense lets nothing in from the internet unless it's a reply to a connection started inside, and Suricata checks traffic for known attacks. 0 port forwards." width="100%"></picture></a>
+<a href="#security-design"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/glance-design-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/glance-design-light.svg"><img src="assets/glance-design-light.svg" alt="Security design: defense in depth, from the outside in. Six VLANs are kept apart, and access lists decide which ones can talk. 4 layers." width="100%"></picture></a>
+<a href="#security-controls"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/glance-controls-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/glance-controls-light.svg"><img src="assets/glance-controls-light.svg" alt="Security controls: five checks that anything from outside has to pass, from the cameras watching the house to updates and backups. 13 controls." width="100%"></picture></a>
+<a href="#detection-pipeline"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/glance-detection-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/glance-detection-light.svg"><img src="assets/glance-detection-light.svg" alt="Detection pipeline: the lab's devices send their logs to Wazuh, which raises alerts and blocks attackers, then forwards them to Splunk. 5 log sources." width="100%"></picture></a>
+
+<br>
+
+## <a name="firewall"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-firewall-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-firewall-light.svg"><img src="assets/h-firewall-light.svg" height="32" align="top" alt=""></picture>Firewall
+
+The firewall is a CloudGenix ION 3000, an SD-WAN appliance built for business branch offices. Its original system was wiped and replaced with OPNsense, an open-source firewall.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/firewall-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/firewall-light.svg">
+  <img src="assets/firewall-light.svg" alt="Firewall: OPNsense running on a CloudGenix ION 3000, a rebranded Lanner FW-7573, with an Atom C2758 8-core CPU, 8 GB of memory, an 80 GB SSD and 14 gigabit ports. Front panel port map: WAN is igb12, the first Internet port, cabled to the ISR 4331 Gi0/0/0 at 192.168.50.2/30. LAN is a bridge of the eight module ports, igb2 to igb9, with igb5 cabled to the core switch Gi1/0/1 at 192.168.50.5/30; any module port can go to the core. The two Controller ports and the other three Internet ports are spare. How it became the firewall: the original CloudGenix SD-WAN system was wiped, UEFI boot was enabled in the BIOS, and OPNsense was installed fresh. What it does: stateful filtering, so nothing from the internet gets in unless it&#x27;s a reply to a connection started inside, and Suricata IDS, which inspects traffic for known attack patterns and sends its alerts to Wazuh." width="100%">
+</picture>
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
 <br>
 
 ## <a name="security-design"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-security-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-security-light.svg"><img src="assets/h-security-light.svg" height="32" align="top" alt=""></picture>Security design
@@ -231,11 +310,21 @@ How the network is protected: four layers of defense from the outside in, then a
   <img src="assets/trust-zones-light.svg" alt="Security design. Defense in depth, four layers from the outside in. 1. Internet (untrusted): No inbound connections are allowed in. 2. Perimeter (filtered): ISR 4331 and OPNsense with Suricata IDS filter and inspect all traffic. 3. Internal network (segmented): Six VLANs, isolated by access lists on the core switch. 4. Management access (restricted): Switch and router logins only from the admin workstation. Who can talk to who; every rule works in both directions. Management (VLAN 10, Admin PC, switches, APs, Proxmox): Internet allowed; Internal allowed; Servers allowed; Storage allowed for Admin PC, Proxmox only; Cameras allowed for Admin PC only; Guests blocked; rule Admin-SSH. Internal (VLAN 20, Family PCs and phones, Wi-Fi): Internet allowed; Management allowed; Servers allowed; Storage blocked; Cameras blocked; Guests blocked; no rule of its own. Servers (VLAN 40, DCs, file server, monitoring): Internet allowed; Management allowed; Internal allowed; Storage allowed; Cameras blocked; Guests blocked; no rule of its own. Storage (VLAN 60, UniFi UNAS Pro): Internet allowed; Management allowed for Admin PC, Proxmox only; Internal blocked; Servers allowed; Cameras blocked; Guests blocked; rule NAS. Cameras (VLAN 50, 4 PoE cameras and the NVR): Internet blocked; Management allowed for Admin PC only; Internal blocked; Servers blocked; Storage blocked; Guests blocked; rule IP-Cameras. Guests (VLAN 30, Visitor Wi-Fi): Internet allowed; Management blocked; Internal blocked; Servers blocked; Storage blocked; Cameras blocked; rule Guest-Internet." width="100%">
 </picture>
 
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
+
+<br>
+
+## <a name="security-controls"></a><picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-controls-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/h-controls-light.svg"><img src="assets/h-controls-light.svg" height="32" align="top" alt=""></picture>Security controls
+
+13 controls in five checks. Anything from outside has to pass every one, top to bottom.
+
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/security-controls-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/security-controls-light.svg">
-  <img src="assets/security-controls-light.svg" alt="Security controls as a path of five checks, from the internet at the top to the data and services at the bottom. Anything from outside has to pass every check, top to bottom. 1. Physical: Four cameras watch the house and record to a recorder in the rack. Controls: Surveillance (PoE cameras · NVR). 2. Perimeter: Stops and inspects anything coming from the internet. Controls: Firewall and IDS, No open doors (OPNsense firewall · Suricata IDS · no port forwards). 3. Network: Keeps each kind of device on its own separate network. Controls: Separate VLANs, Guest Wi-Fi, Cameras, Storage (6 VLANs · Guest-Internet, IP-Cameras and NAS access lists). 4. Access: Decides who can sign in and who can change settings. Controls: Admin-only logins, Central accounts (Admin-SSH access list · Active Directory · CA · NPS). 5. Data protection: Keeps systems updated, watched, backed up and private. Controls: Updates, Monitoring, Backups, Safe to share (WSUS · Wazuh · Splunk · LibreNMS · UNAS Pro)." width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/security-controls-notitle-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/security-controls-notitle-light.svg">
+  <img src="assets/security-controls-notitle-light.svg" alt="Security controls as a path of five checks, from the internet at the top to the data and services at the bottom. Anything from outside has to pass every check, top to bottom. 1. Physical: Four cameras watch the house and record to a recorder in the rack. Controls: Surveillance (PoE cameras · NVR). 2. Perimeter: Stops and inspects anything coming from the internet. Controls: Firewall and IDS, No open doors (OPNsense firewall · Suricata IDS · no port forwards). 3. Network: Keeps each kind of device on its own separate network. Controls: Separate VLANs, Guest Wi-Fi, Cameras, Storage (6 VLANs · Guest-Internet, IP-Cameras and NAS access lists). 4. Access: Decides who can sign in and who can change settings. Controls: Admin-only logins, Central accounts (Admin-SSH access list · Active Directory · CA · NPS). 5. Data protection: Keeps systems updated, watched, backed up and private. Controls: Updates, Monitoring, Backups, Safe to share (WSUS · Wazuh · Splunk · LibreNMS · UNAS Pro)." width="100%">
 </picture>
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
@@ -248,6 +337,8 @@ The lab's devices send their logs to Wazuh, which runs in Docker on SWAGGER-NMS0
   <source media="(prefers-color-scheme: light)" srcset="assets/pipeline-light.svg">
   <img src="assets/pipeline-light.svg" alt="Detection pipeline. Five log sources feed Wazuh: the Cisco network (ISR 4331 and Catalyst 3850s), OPNsense with Suricata (firewall logs and IDS alerts), the Windows domain (SWAGGER-DC01, DC02, FS01 and CA01), Proxmox and Docker, and UniFi. Wazuh, running in Docker on SWAGGER-NMS01, decodes the logs, correlates them against its rules and responds, then forwards events to Splunk for search and dashboards. In the animation, a brute force attempt on SWAGGER-DC01 raises a level 10 alert, active response blocks the source, and the alert is forwarded to Splunk." width="100%">
 </picture>
+
+<p align="right"><a href="#menu"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/nav-top-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/nav-top-light.svg"><img src="assets/nav-top-light.svg" alt="Back to menu" height="26"></picture></a></p>
 
 <br>
 
